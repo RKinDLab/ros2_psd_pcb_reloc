@@ -9,13 +9,13 @@ A better writeup is to follow in the coming months
 
 - [ ] Update README.md file with instructions on downloading and building files [July 2024]
 
-- [ ] Link to zendo website to downlaoding sequences for one Machine Hall, one vicon, one TUMFR2 and all two from lsu-icore database [ June 2024]
+- [ ] On Zenodo only publish LSU_iCORE_MONO dataset with instructions on how to download and setup the EuRoC and TUM FR2 dataset [ June 2024]
 
 - [ ] Delete all package 2 related codes, ros2_tictoc_profiler, line_lbd, fast_mf [05/20/24]
 
-- [ ] Build and test the packages [05/20/24]
-  
-- [ ] Create instructions on how to download the zendo files and setup the experiment [After July conference]
+- [ ] Release ros2_psd_pcb_reloc public [July 18th 2024]
+
+- [x] Build and test the packages [05/20/24]
 
 * Make sure to mention that dataset names must be in all caps
 
