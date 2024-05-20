@@ -1,1 +1,8 @@
-# TODO
+# Ignore install, log, and build directories at the root
+/install/
+/log/
+/build/
+
+# Ignore all __pycache__ directories and *.pyc files anywhere in the repository
+**/__pycache__/
+**/*.pyc

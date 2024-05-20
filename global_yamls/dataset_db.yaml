@@ -1,0 +1,137 @@
+# A master YAML file contianing definitions of static and dynamic objects, names of image sequences
+# and camera configuration yaml file that needs to be read.
+
+MACHINE_HALL:
+    static_objs_names: {0: 'platform',1: 'net1',2: 'vicon1',3: 'vertcylinder1',4: 'horipipe1',
+    5: 'upipe1',6: 'controlboard1',7: 'motor1',8: 'bigsilo1',9: 'valvepipe1',10: 'steelrail',
+    11: 'blackwall1',12: 'largeuexhaust1',13: 'whiterectsilo1',14: 'smallpump1',15: 'blacksteelcabinet',
+    16: 'boiler2',17: 'horiboiler2pipe',18: 'jtoppipe1',19: 'greysteelbox1',20: 'whitebox',21: 'greypowercabinet1',
+    22: 'blackwall2',23: 'bigboiler1',24: 'hangingwoodplanks',25: 'skylight1'} # [0,1,2]
+    dynamic_objs_names: {100: 'dummy'} # EurocV Machine Hall datasets has not disceranble dynamic objects
+    weights: "euroc_machine_hall.pt"
+    yolov5_config: "custom_euroc_mh.yaml"
+    settings_config: "EuRoC.yaml"
+    dataset_names: ["MH01","MH02","MH03","MH04","MH05"]
+    # Dataset name and its corresponding start and stop frames
+    MH01:
+        start_frame: 500
+        stop_frame: 3209
+    MH02:
+        start_frame: 780
+        stop_frame: 3500
+    MH03:
+        start_frame: 400
+        stop_frame: 2600
+    MH04:
+        start_frame: 250
+        stop_frame: 1786
+    MH05:
+        start_frame: 250
+        stop_frame: 2000
+    # Sensor type, valid choices are ["MONOCULAR, RGBD, STEREO"]
+    ORBSLAM3.sensorType: "MONOCULAR"
+
+VICON_ROOM:
+    static_objs_names: {0: 'stage1', 1: 'greymat1', 2: 'checkerboard1',
+    3: 'woodwall1', 4: 'qr1', 5: 'blackvent1', 6: 'stands1', 7: 'floorimage1',
+    8: 'qr2', 9: 'whiteboard', 10: 'steelcabinet1', 11: 'monitor1',
+    12: 'whitebox1', 13: 'steelladder1', 14: 'blackcurain1'}
+    dynamic_objs_names: {100: 'dummy'}
+    weights: "euroc_vicon_room.pt"
+    yolov5_config: "custom_euroc_vicon.yaml"
+    settings_config: "EuRoC.yaml"
+    dataset_names: ["V101","V102","V103","V201","V202","V203"]
+    # Dataset name and its corresponding start and stop frames
+    V101:
+        start_frame: 400
+        stop_frame: 2800
+    V102:
+        start_frame: 200
+        stop_frame: 1650
+    V103:
+        start_frame: 200
+        stop_frame: 2050
+    V201:
+        start_frame: 200
+        stop_frame: 2190
+    V202:
+        start_frame: 200
+        stop_frame: 2290
+    V203:
+        start_frame: 100
+        stop_frame: 900
+    # Sensor type, valid choices are ["MONOCULAR, RGBD, STEREO"]
+    ORBSLAM3.sensorType: "MONOCULAR"
+    
+TUM_FR2:
+    static_objs_names: {0: 'raptor-e', 1: 'black-tripod', 2: 'white-screen', 3: 'brown-chair',
+    4: 'table', 5: 'brown-box', 6: 'cyan-box', 7: 'door',
+    8: 'fire-extinguisher', 9: 'blue-tube', 10: 'brown-tube', 11: 'monitor-globe',
+    12: 'yellow-cube', 13: 'checker-board', 14: 'teddy',}
+    dynamic_objs_names: {100: 'dummy'}
+    weights: "tum_fr2_pioneer.pt"
+    yolov5_config: "custom_tum_fr2_pioneer.yaml"
+    settings_config: "TUM2.yaml"
+    dataset_names: ["FR2PIONEER360","FR2PS1","FR2PS2","FR2PS3"]
+    # Dataset name and its corresponding start and stop frames
+    FR2PIONEER360:
+        start_frame: 300
+        stop_frame: 1150
+    FR2PS1:
+        start_frame: 200
+        stop_frame: 2900
+    FR2PS2:
+        start_frame: 1000
+        stop_frame: 2000
+    FR2PS3:
+        start_frame: 500
+        stop_frame: 2500
+    # Sensor type, valid choices are ["MONOCULAR, RGBD, STEREO"]
+    ORBSLAM3.sensorType: "MONOCULAR"
+
+LSU_iCORE_MONO:
+    static_objs_names: {0: 'auv1',1: 'blackchair',2: 'whiteboard1',3: 'browntable1',
+    4: 'blacktable1',5: 'woodendolly1',6: 'steelcabinet1',7: 'minifridge',8: 'smallcabient1',
+    9: 'monitors1',10: 'blackpodium1',11: 'horiwindows1',12: 'brownbox1',16: 'horiwindblade1'}
+    dynamic_objs_names: {13: 'person',14: 'rbkairos1',15: 'turtlebot1'}
+    weights: "lsu_icore_april.pt"
+    yolov5_config: "custom_lsu_icore_mono.yaml"
+    settings_config: "LSU_iCORE_MONO.yaml"
+    dataset_names: ["ROBOTICSLAB0", "ROBOTICSLAB1", "ROBOTICSLAB2"]
+    # Dataset name and its corresponding start and stop frames
+    ROBOTICSLAB0:
+        start_frame: 60
+        stop_frame: 2723
+    ROBOTICSLAB1:
+        start_frame: 60
+        stop_frame: 799
+    ROBOTICSLAB2:
+        start_frame: 60
+        stop_frame: 2070
+    # Sensor type, valid choices are ["MONOCULAR, RGBD, STEREO"]
+    ORBSLAM3.sensorType: "MONOCULAR"
+
+LSU_iCORE_RGBD:
+    static_objs_names: {0: 'auv1',1: 'blackchair',2: 'whiteboard1',3: 'browntable1',
+    4: 'blacktable1',5: 'woodendolly1',6: 'steelcabinet1',7: 'minifridge',8: 'smallcabient1',
+    9: 'monitors1',10: 'blackpodium1',11: 'horiwindows1',12: 'brownbox1',16: 'horiwindblade1'}
+    dynamic_objs_names: {13: 'person',14: 'rbkairos1',15: 'turtlebot1'}
+    weights: "lsu_icore_april.pt"
+    yolov5_config: "custom_lsu_icore_mono.yaml"
+    weights: "lsu_icore_april.pt"
+    yolov5_config: "custom_lsu_icore_mono.yaml"
+    settings_config: "LSU_iCORE_RGBD.yaml"
+    dataset_names: ["ROBOTICSLAB0", "ROBOTICSLAB1", "ROBOTICSLAB2"]
+    # Dataset name and its corresponding start and stop frames
+    ROBOTICSLAB0:
+        start_frame: 60
+        stop_frame: 2723
+    ROBOTICSLAB1:
+        start_frame: 60
+        stop_frame: 799
+    ROBOTICSLAB2:
+        start_frame: 60
+        stop_frame: 2070
+    # Sensor type, valid choices are ["MONOCULAR, RGBD, STEREO"]
+    ORBSLAM3.sensorType: "RGBD"
+
