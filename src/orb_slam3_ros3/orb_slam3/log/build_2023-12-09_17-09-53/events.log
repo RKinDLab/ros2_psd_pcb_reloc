@@ -1,0 +1,5 @@
+[0.000000] (-) TimerEvent: {}
+[0.000203] (-) JobUnselected: {'identifier': 'DBoW2'}
+[0.000228] (-) JobUnselected: {'identifier': 'g2o'}
+[0.000282] (-) JobUnselected: {'identifier': 'sophus'}
+[0.000360] (-) EventReactorShutdown: {}

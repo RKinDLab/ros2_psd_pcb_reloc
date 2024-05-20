@@ -1,0 +1,59 @@
+[0.000000] (-) TimerEvent: {}
+[0.000292] (orb_slam3_ros2) JobQueued: {'identifier': 'orb_slam3_ros2', 'dependencies': OrderedDict()}
+[0.000383] (orb_slam3_ros2) JobStarted: {'identifier': 'orb_slam3_ros2'}
+[0.053542] (orb_slam3_ros2) JobProgress: {'identifier': 'orb_slam3_ros2', 'progress': 'cmake'}
+[0.053938] (orb_slam3_ros2) JobProgress: {'identifier': 'orb_slam3_ros2', 'progress': 'build'}
+[0.054453] (orb_slam3_ros2) Command: {'cmd': ['/home/tigerwife/.local/bin/cmake', '--build', '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/build/orb_slam3_ros2', '--', '-j12', '-l12'], 'cwd': '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/build/orb_slam3_ros2', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'tigerwife'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/tigerwife/ros2_ws/install/orb_slam3_ros2/lib:/home/tigerwife/ros2_ws/install/custom_msg_interface/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/tigerwife'), ('OLDPWD', '/home/tigerwife'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '2027'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/tigerwife/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'tigerwife'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'tigerwife'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/tigerwife/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/tigerwife:@/tmp/.ICE-unix/2008,unix/tigerwife:/tmp/.ICE-unix/2008'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/acbaa0b0_56fc_4da0_848e_b1b77f1e6d68'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.160'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/tigerwife/ros2_ws/install/py_obj_detector_yolov5_ros2:/home/tigerwife/ros2_ws/install/orb_slam3_ros2:/home/tigerwife/ros2_ws/install/my_launcher:/home/tigerwife/ros2_ws/install/custom_msg_interface:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('ROS_MASTER_URI', 'http://localhost:11311'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/build/orb_slam3_ros2'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/tigerwife/ros2_ws/build/py_obj_detector_yolov5_ros2:/home/tigerwife/ros2_ws/install/py_obj_detector_yolov5_ros2/lib/python3.10/site-packages:/home/tigerwife/ros2_ws/install/custom_msg_interface/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/tigerwife/ros2_ws/install/orb_slam3_ros2:/home/tigerwife/ros2_ws/install/my_launcher:/home/tigerwife/ros2_ws/install/custom_msg_interface:/home/tigerwife/ros2_ws/install/py_obj_detector_yolov5_ros2:/opt/ros/humble')]), 'shell': False}
+[0.089608] (orb_slam3_ros2) StdoutLine: {'line': b'-- Using flag -std=c++17.\n'}
+[0.089928] (orb_slam3_ros2) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.6 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.099657] (-) TimerEvent: {}
+[0.199864] (-) TimerEvent: {}
+[0.246552] (orb_slam3_ros2) StdoutLine: {'line': b'-- Found rclcpp: 16.0.7 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.278709] (orb_slam3_ros2) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.281529] (orb_slam3_ros2) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.288227] (orb_slam3_ros2) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.299887] (orb_slam3_ros2) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.299965] (-) TimerEvent: {}
+[0.315510] (orb_slam3_ros2) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.370654] (orb_slam3_ros2) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.372380] (orb_slam3_ros2) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.5 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.400035] (-) TimerEvent: {}
+[0.485651] (orb_slam3_ros2) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.500119] (-) TimerEvent: {}
+[0.600363] (-) TimerEvent: {}
+[0.622210] (orb_slam3_ros2) StdoutLine: {'line': b'-- Found sensor_msgs: 4.2.3 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[0.700673] (-) TimerEvent: {}
+[0.724679] (orb_slam3_ros2) StdoutLine: {'line': b'-- Found custom_msg_interface: 1.0.0 (/home/tigerwife/ros2_ws/install/custom_msg_interface/share/custom_msg_interface/cmake)\n'}
+[0.792591] (orb_slam3_ros2) StdoutLine: {'line': b'-- Found cv_bridge: 3.2.1 (/opt/ros/humble/share/cv_bridge/cmake)\n'}
+[0.800749] (-) TimerEvent: {}
+[0.811852] (orb_slam3_ros2) StderrLine: {'line': b'\x1b[0mPangolin libraries: pango_core;pango_display;pango_geometry;pango_glgeometry;pango_image;pango_opengl;pango_packetstream;pango_plot;pango_python;pango_scene;pango_tools;pango_vars;pango_video;pango_windowing;tinyobj\x1b[0m\n'}
+[0.812498] (orb_slam3_ros2) StdoutLine: {'line': b'-- Found image_transport: 3.1.7 (/opt/ros/humble/share/image_transport/cmake)\n'}
+[0.900861] (-) TimerEvent: {}
+[0.902999] (orb_slam3_ros2) StdoutLine: {'line': b'-- Configuring done (0.8s)\n'}
+[0.943469] (orb_slam3_ros2) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[0.945160] (orb_slam3_ros2) StdoutLine: {'line': b'-- Build files have been written to: /home/tigerwife/ros2_ws/src/orb_slam3_ros2/build/orb_slam3_ros2\n'}
+[1.000942] (-) TimerEvent: {}
+[1.064923] (orb_slam3_ros2) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/orb_slam3_ros2.dir/build.make:724: CMakeFiles/orb_slam3_ros2.dir/depend] Interrupt\n'}
+[1.065147] (orb_slam3_ros2) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/orb_slam3_ros2.dir/all] Interrupt\n'}
+[1.065353] (orb_slam3_ros2) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Interrupt\n'}
+[1.066922] (orb_slam3_ros2) StderrLine: {'line': b'Traceback (most recent call last):\n'}
+[1.066988] (orb_slam3_ros2) StderrLine: {'line': b'  File "/home/tigerwife/.local/bin/cmake", line 8, in <module>\n'}
+[1.067069] (orb_slam3_ros2) StderrLine: {'line': b'    sys.exit(cmake())\n'}
+[1.067125] (orb_slam3_ros2) StderrLine: {'line': b'  File "/home/tigerwife/.local/lib/python3.10/site-packages/cmake/__init__.py", line 43, in cmake\n'}
+[1.067445] (orb_slam3_ros2) StderrLine: {'line': b"    raise SystemExit(_program('cmake', sys.argv[1:]))\n"}
+[1.067522] (orb_slam3_ros2) StderrLine: {'line': b'  File "/home/tigerwife/.local/lib/python3.10/site-packages/cmake/__init__.py", line 39, in _program\n'}
+[1.067569] (orb_slam3_ros2) StderrLine: {'line': b'    return subprocess.call([os.path.join(CMAKE_BIN_DIR, name)] + args, close_fds=False)\n'}
+[1.067611] (orb_slam3_ros2) StderrLine: {'line': b'  File "/usr/lib/python3.10/subprocess.py", line 347, in call\n'}
+[1.067721] (orb_slam3_ros2) StderrLine: {'line': b'    return p.wait(timeout=timeout)\n'}
+[1.067774] (orb_slam3_ros2) StderrLine: {'line': b'  File "/usr/lib/python3.10/subprocess.py", line 1209, in wait\n'}
+[1.067871] (orb_slam3_ros2) StderrLine: {'line': b'    return self._wait(timeout=timeout)\n'}
+[1.067916] (orb_slam3_ros2) StderrLine: {'line': b'  File "/usr/lib/python3.10/subprocess.py", line 1959, in _wait\n'}
+[1.068027] (orb_slam3_ros2) StderrLine: {'line': b'    (pid, sts) = self._try_wait(0)\n'}
+[1.068072] (orb_slam3_ros2) StderrLine: {'line': b'  File "/usr/lib/python3.10/subprocess.py", line 1917, in _try_wait\n'}
+[1.068178] (orb_slam3_ros2) StderrLine: {'line': b'    (pid, sts) = os.waitpid(self.pid, wait_flags)\n'}
+[1.068223] (orb_slam3_ros2) StderrLine: {'line': b'KeyboardInterrupt\n'}
+[1.072024] (orb_slam3_ros2) CommandEnded: {'returncode': -2}
+[1.101013] (-) TimerEvent: {}
+[1.201275] (-) TimerEvent: {}
+[1.221602] (orb_slam3_ros2) JobEnded: {'identifier': 'orb_slam3_ros2', 'rc': 'SIGINT'}
+[1.232043] (-) EventReactorShutdown: {}

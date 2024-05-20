@@ -1,0 +1,33 @@
+[0.043s] Invoking command in '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/build/orb_slam3_ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tigerwife/ros2_ws/install/py_obj_detector_yolov5_ros2:/opt/ros/humble /home/tigerwife/.local/bin/cmake /home/tigerwife/ros2_ws/src/orb_slam3_ros2 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/orb_slam3_ros2
+[0.066s] -- Using flag -std=c++17.
+[0.066s] -- Found ament_cmake: 1.3.6 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.204s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.212s] -- Found rclcpp: 16.0.7 (/opt/ros/humble/share/rclcpp/cmake)
+[0.250s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.252s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.257s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.267s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.280s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.328s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.329s] -- Found rmw_fastrtps_cpp: 6.2.5 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.427s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.552s] -- Found sensor_msgs: 4.2.3 (/opt/ros/humble/share/sensor_msgs/cmake)
+[0.657s] [31mCMake Error at CMakeLists.txt:31 (find_package):
+[0.657s]   By not providing "Findcustom_msg_interface.cmake" in CMAKE_MODULE_PATH this
+[0.657s]   project has asked CMake to find a package configuration file provided by
+[0.657s]   "custom_msg_interface", but CMake did not find one.
+[0.657s] 
+[0.657s]   Could not find a package configuration file provided by
+[0.657s]   "custom_msg_interface" with any of the following names:
+[0.657s] 
+[0.657s]     custom_msg_interfaceConfig.cmake
+[0.657s]     custom_msg_interface-config.cmake
+[0.658s] 
+[0.658s]   Add the installation prefix of "custom_msg_interface" to CMAKE_PREFIX_PATH
+[0.658s]   or set "custom_msg_interface_DIR" to a directory containing one of the
+[0.658s]   above files.  If "custom_msg_interface" provides a separate development
+[0.658s]   package or SDK, be sure it has been installed.
+[0.658s] 
+[0.658s] [0m
+[0.658s] -- Configuring incomplete, errors occurred!
+[0.664s] Invoked command in '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/build/orb_slam3_ros2' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tigerwife/ros2_ws/install/py_obj_detector_yolov5_ros2:/opt/ros/humble /home/tigerwife/.local/bin/cmake /home/tigerwife/ros2_ws/src/orb_slam3_ros2 -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/orb_slam3_ros2

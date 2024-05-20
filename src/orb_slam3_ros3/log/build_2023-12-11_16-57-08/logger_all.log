@@ -1,0 +1,81 @@
+[0.827s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'orb_slam3_ros2']
+[0.827s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=12, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['orb_slam3_ros2'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7f4273f2d630>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f4274079000>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f4274079000>>)
+[0.863s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.863s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.863s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.863s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.863s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.863s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.863s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/tigerwife/ros2_ws/src/orb_slam3_ros2'
+[0.863s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.863s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.863s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.864s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.864s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.864s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.864s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.864s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.864s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.873s] DEBUG:colcon.colcon_core.package_identification:Package '.' with type 'ros.ament_cmake' and name 'orb_slam3_ros2'
+[0.873s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.873s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.873s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.873s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.873s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.945s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.945s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.970s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 4 installed packages in /home/tigerwife/ros2_ws/install
+[0.990s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 270 installed packages in /opt/ros/humble
+[0.991s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[1.055s] Level 5:colcon.colcon_core.verb:set package 'orb_slam3_ros2' build argument 'cmake_args' from command line to 'None'
+[1.055s] Level 5:colcon.colcon_core.verb:set package 'orb_slam3_ros2' build argument 'cmake_target' from command line to 'None'
+[1.055s] Level 5:colcon.colcon_core.verb:set package 'orb_slam3_ros2' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.055s] Level 5:colcon.colcon_core.verb:set package 'orb_slam3_ros2' build argument 'cmake_clean_cache' from command line to 'False'
+[1.055s] Level 5:colcon.colcon_core.verb:set package 'orb_slam3_ros2' build argument 'cmake_clean_first' from command line to 'False'
+[1.055s] Level 5:colcon.colcon_core.verb:set package 'orb_slam3_ros2' build argument 'cmake_force_configure' from command line to 'False'
+[1.055s] Level 5:colcon.colcon_core.verb:set package 'orb_slam3_ros2' build argument 'ament_cmake_args' from command line to 'None'
+[1.055s] Level 5:colcon.colcon_core.verb:set package 'orb_slam3_ros2' build argument 'catkin_cmake_args' from command line to 'None'
+[1.055s] Level 5:colcon.colcon_core.verb:set package 'orb_slam3_ros2' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.055s] DEBUG:colcon.colcon_core.verb:Building package 'orb_slam3_ros2' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/build/orb_slam3_ros2', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/orb_slam3_ros2', 'merge_install': False, 'path': '/home/tigerwife/ros2_ws/src/orb_slam3_ros2', 'symlink_install': False, 'test_result_base': None}
+[1.067s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[1.079s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[1.079s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/tigerwife/ros2_ws/src/orb_slam3_ros2' with build type 'ament_cmake'
+[1.080s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/tigerwife/ros2_ws/src/orb_slam3_ros2'
+[1.093s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[1.093s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.093s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.135s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/build/orb_slam3_ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tigerwife/ros2_ws/install/py_obj_detector_yolov5_ros2:/opt/ros/humble /home/tigerwife/.local/bin/cmake --build /home/tigerwife/ros2_ws/src/orb_slam3_ros2/build/orb_slam3_ros2 -- -j12 -l12
+[2.143s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete was interrupted
+[2.143s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete again
+[2.152s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/build/orb_slam3_ros2' returned '-2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tigerwife/ros2_ws/install/py_obj_detector_yolov5_ros2:/opt/ros/humble /home/tigerwife/.local/bin/cmake --build /home/tigerwife/ros2_ws/src/orb_slam3_ros2/build/orb_slam3_ros2 -- -j12 -l12
+[2.270s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(orb_slam3_ros2)
+[2.284s] Level 1:colcon.colcon_core.environment:checking '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/orb_slam3_ros2' for CMake module files
+[2.284s] Level 1:colcon.colcon_core.environment:checking '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/orb_slam3_ros2' for CMake config files
+[2.285s] Level 1:colcon.colcon_core.environment:checking '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/orb_slam3_ros2/bin'
+[2.285s] Level 1:colcon.colcon_core.environment:checking '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/orb_slam3_ros2/lib/pkgconfig/orb_slam3_ros2.pc'
+[2.285s] Level 1:colcon.colcon_core.environment:checking '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/orb_slam3_ros2/lib/python3.10/site-packages'
+[2.285s] Level 1:colcon.colcon_core.environment:checking '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/orb_slam3_ros2/bin'
+[2.298s] INFO:colcon.colcon_core.shell:Creating package script '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/orb_slam3_ros2/share/orb_slam3_ros2/package.ps1'
+[2.299s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/orb_slam3_ros2/share/orb_slam3_ros2/package.dsv'
+[2.299s] INFO:colcon.colcon_core.shell:Creating package script '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/orb_slam3_ros2/share/orb_slam3_ros2/package.sh'
+[2.300s] INFO:colcon.colcon_core.shell:Creating package script '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/orb_slam3_ros2/share/orb_slam3_ros2/package.bash'
+[2.300s] INFO:colcon.colcon_core.shell:Creating package script '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/orb_slam3_ros2/share/orb_slam3_ros2/package.zsh'
+[2.301s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/orb_slam3_ros2/share/colcon-core/packages/orb_slam3_ros2)
+[2.311s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished
+[2.311s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[2.311s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[2.311s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[2.327s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[2.327s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[2.328s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[2.337s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[2.349s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/local_setup.ps1'
+[2.350s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/_local_setup_util_ps1.py'
+[2.351s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/setup.ps1'
+[2.363s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/local_setup.sh'
+[2.364s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/_local_setup_util_sh.py'
+[2.364s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/setup.sh'
+[2.377s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/local_setup.bash'
+[2.377s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/setup.bash'
+[2.389s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/local_setup.zsh'
+[2.390s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/install/setup.zsh'

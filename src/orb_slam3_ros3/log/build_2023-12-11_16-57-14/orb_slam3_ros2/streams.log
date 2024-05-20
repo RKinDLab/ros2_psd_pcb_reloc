@@ -1,0 +1,38 @@
+[0.055s] Invoking command in '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/build/orb_slam3_ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tigerwife/ros2_ws/install/py_obj_detector_yolov5_ros2:/opt/ros/humble /home/tigerwife/.local/bin/cmake --build /home/tigerwife/ros2_ws/src/orb_slam3_ros2/build/orb_slam3_ros2 -- -j12 -l12
+[0.252s] [ 90%] Built target orb_slam3_ros2
+[0.294s] [ 93%] [32m[1mLinking CXX executable agent0[0m
+[0.446s] /usr/bin/ld: warning: libGLEW.so.2.1, needed by /home/tigerwife/Downloads/Pangolin/build/libpango_display.so, not found (try using -rpath or -rpath-link)
+[0.463s] /usr/bin/ld: warning: libIlmImf-2_3.so.24, needed by /home/tigerwife/Downloads/Pangolin/build/libpango_image.so, not found (try using -rpath or -rpath-link)
+[0.684s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::FrameBuffer::insert(char const*, Imf_2_3::Slice const&)'
+[0.684s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::OutputFile::setFrameBuffer(Imf_2_3::FrameBuffer const&)'
+[0.686s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::OutputFile::OutputFile(char const*, Imf_2_3::Header const&, int)'
+[0.687s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::InputFile::setFrameBuffer(Imf_2_3::FrameBuffer const&)'
+[0.687s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::Channel::Channel(Imf_2_3::PixelType, int, int, bool)'
+[0.688s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::InputFile::header() const'
+[0.689s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::ChannelList::end() const'
+[0.689s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::Header::~Header()'
+[0.691s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::InputFile::~InputFile()'
+[0.691s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::Slice::Slice(Imf_2_3::PixelType, char*, unsigned long, unsigned long, int, int, double, bool, bool)'
+[0.692s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::OutputFile::~OutputFile()'
+[0.693s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::InputFile::isComplete() const'
+[0.693s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::InputFile::InputFile(Imf_2_3::IStream&, int)'
+[0.694s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::IStream::IStream(char const*)'
+[0.695s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::ChannelList::insert(char const*, Imf_2_3::Channel const&)'
+[0.695s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::OutputFile::writePixels(int)'
+[0.696s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::IStream::isMemoryMapped() const'
+[0.697s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::Header::channels()'
+[0.698s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::Header::Header(int, int, float, Imath_2_3::Vec2<float> const&, float, Imf_2_3::LineOrder, Imf_2_3::Compression)'
+[0.699s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::Header::channels() const'
+[0.700s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::ChannelList::begin() const'
+[0.700s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::InputFile::readPixels(int, int)'
+[0.701s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::globalThreadCount()'
+[0.702s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::Header::dataWindow() const'
+[0.702s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::IStream::~IStream()'
+[0.703s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::ChannelList::findChannel(char const*)'
+[0.704s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `typeinfo for Imf_2_3::IStream'
+[0.705s] /usr/bin/ld: /home/tigerwife/Downloads/Pangolin/build/libpango_image.so: undefined reference to `Imf_2_3::IStream::readMemoryMapped(int)'
+[0.719s] collect2: error: ld returned 1 exit status
+[0.720s] gmake[2]: *** [CMakeFiles/agent0.dir/build.make:278: agent0] Error 1
+[0.720s] gmake[1]: *** [CMakeFiles/Makefile2:165: CMakeFiles/agent0.dir/all] Error 2
+[0.721s] gmake: *** [Makefile:146: all] Error 2
+[0.725s] Invoked command in '/home/tigerwife/ros2_ws/src/orb_slam3_ros2/build/orb_slam3_ros2' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tigerwife/ros2_ws/install/py_obj_detector_yolov5_ros2:/opt/ros/humble /home/tigerwife/.local/bin/cmake --build /home/tigerwife/ros2_ws/src/orb_slam3_ros2/build/orb_slam3_ros2 -- -j12 -l12
