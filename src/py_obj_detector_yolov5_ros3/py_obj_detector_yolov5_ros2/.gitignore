@@ -1,0 +1,3 @@
+# Ignore all pytorch weight files
+*.pth
+*.pt

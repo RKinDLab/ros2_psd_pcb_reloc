@@ -1,0 +1,11 @@
+# Ignore pytorch weight files
+*.pth
+*.pt
+*.pyc
+/.vscode/
+/.ruff_cache/
+# Ignore all __pycache__ directories recursively
+**/__pycache__/
+
+# Ignore all Python bytecode files recursively
+**/*.py[cod]
