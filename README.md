@@ -3,6 +3,37 @@
 A better writeup is to follow in the coming months
 
 
+## Installation
+
+We assume that you already have ROS 2 Humble installed and are familiar with the basics of a workspace. If not please install and test [ROS2 Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html) and then familiarize yourself with how to work with a ros2 [workspace](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.youtube.com/watch%3Fv%3D3GbrKQ7G2P0&ved=2ahUKEwi4gLGAyZyGAxUt38kDHfQBDkAQwqsBegQIExAG&usg=AOvVaw3DbkiwvqPzk4Im6OomO3jM). This tutorial on [multiple workspaces](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.youtube.com/watch%3Fv%3DEk2nnWM5zp8&ved=2ahUKEwi4gLGAyZyGAxUt38kDHfQBDkAQwqsBegQIFBAG&usg=AOvVaw1KlhKy-YPUIyzQWg2C4Buc) will also come in handy
+
+Please do the following
+
+* import em error
+
+### Step 0: Configure .bashrc
+
+Setup 
+
+#### ros2_config and .bashrc
+
+TODO
+
+## Prerequisits
+
+#### Eigen3, Numpy
+
+* Colcon: ```sudo apt install python3-colcon-common-extensions```
+
+* Eigen3: ```sudo apt install libeigen3-dev```
+
+
+
+1. Install Pytorch, CUDA and test it.
+
+2. empy: ```sudo apt-get install python3-empy```
+
+
 ## TODOs
 
 - [ ] Better introduction line shown in the top-left
