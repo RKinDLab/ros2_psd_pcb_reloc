@@ -5,7 +5,7 @@
 # ------------------------ ROS2 Network Settings for base station-----------------
 
 # Add Python installation path to the PATH variable
-export PATH=$PATH:/path/to/your/python
+export PATH=$PATH:/usr/bin/python3
 
 # Source ROS Humble primitives and packages from main workspace
 source /opt/ros/humble/setup.bash
