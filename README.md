@@ -11,57 +11,70 @@ All authors are with the Department of Mechanical Engineering at Louisiana State
 
 ---
 
-## 0a. Introduction
+## 0. Introduction
 
-This repository contains a complete ***ROS 2 workspace*** that demonstrates the use of a novel ***multimodal keyframe descriptor*** and a new *** Keyframe-based Place Recognition (KPR)*** method for solving the ***short-term relocalization*** problem in Monocular Keyframe Visual SLAM (MKVSLAM) systems.   
+This repository contains a complete ***ROS 2 workspace*** that contains a modified ORB-SLAM3 SLAM framework paired with a YoloV5 object detector for solving the **short-term relocalization** problem using a novel multimodal keyframe descriptor dubbed **Pose-Semantic-Descriptor (PSD)**  and a new Keyframe-based Place Recognition (KPR) method called the **Pose-Class-Box (PCB)** method. This work was presented in [2024 IEEE/ASME International Conference on Advanced Intelligent Mechatronics](https://www.aim2024.org/). A short video demonstrating the performance of the proposed and DBoW2 based short-term relocalization methods is shown below
 
-This work was presented in [2024 IEEE/ASME International Conference on Advanced Intelligent Mechatronics](https://www.aim2024.org/) held in Boston, MA from July 15th to July 19th, 2024 A copy of the published paper, presentation slides and a short video showing the system in action are given in this repository. 
+* [arXiv](TODO) 
 
-## 0b. Quick Summary
+* [Slides](https://docs.google.com/presentation/d/1p_Ukic0ZfXyZjq8wjxNMZpKOc4GEQOv2/edit?usp=sharing&ouid=110812301970152705380&rtpof=true&sd=true) 
 
-The entire system is a combination of **three** packages 
+* A video of the proposed system in action is shown below
 
-* A modified version of [ROS2 ORB-SLAM3 V1.0](https://github.com/Mechazo11/ros2_orb_slam3) VSLAM framework.
+TODO RESUME FROM HERE
 
-* A ROS 2 package of [YOLOv5 V5.0](https://github.com/ultralytics/yolov5). Although it's an older version, it met our requirements for this paper as we did not need faster performance or image segmentation. This package may be used in a **stand-alone** configuration with minor modifications.
-
-* ```matimg_custom_msg_interface```, a package containing all custom messages, primarily used to transport data between the C++ and Python nodes.
-
-All experiments were done in a laptop with the following configurations
-* Ubuntu 22.04
-* Intel i5-9300H
-* Nvidia RTX 2060
-* 16 GB ram. **Note!**, ORB-SLAM3 is a [memory-intensive application](https://github.com/Mechazo11/ros2_orb_slam3/issues/7) and requires at least 16Gb RAM with 8Gb swap during compilation.
-
-Key results are given below
-
-**TODO** add a picture of the results slide
-
-Please note, the original experiment was conducted in ROS 1, but over time, the ```RKinD``` group in the ```iCORE Lab``` has transitioned its research to the ROS 2 ecosystem. There is no difference in the algorithm between the two versions, hence only the ROS 2 version is released to the public.
-
----
-
-## 1. Paper, Contributions and License 
+## 1. High-level Description / Contributions / Bibliography
 
 The contributions of this work are listed below
 
-* A ***new keyframe descriptor*** called the Pose Semantic Descriptor (PSD) is proposed. It utilizes semantic data and camera pose to uniquely characterize keyframe objects in the pose graph. 
+- A ***new keyframe descriptor*** called the Pose Semantic Descriptor (PSD) is proposed. It utilizes semantic data and camera pose to uniquely characterize keyframe objects in the pose graph. 
 
-* A novel ***Keyframe Place Recognition (KPR)*** algorithm called the Pose-Class-Box (PCB) is formulated that significantly improves pose recovery performance from sudden tracking loss events
+- A novel ***Keyframe Place Recognition (KPR)*** algorithm called the Pose-Class-Box (PCB) is formulated that significantly improves pose recovery performance from sudden tracking loss events
 
-* The integration of the proposed descriptor and KPR method for iwithin the open-source ORB-SLAM3 VSLAM framework.
+- The integration of the proposed descriptor and KPR method for iwithin the open-source ORB-SLAM3 VSLAM framework.
 
-Following ORB-SLAM3 and YOLOv5, this system will also use [GPLv3](https://gist.github.com/kn9ts/cbe95340d29fc1aaeaa5dd5c059d2e60) License
+Following ORB-SLAM3 and YOLOv5, this framework will also use [GPLv3](https://gist.github.com/kn9ts/cbe95340d29fc1aaeaa5dd5c059d2e60) License
 
-Thank you for taking the time in checking this project out. If you find this work helpful, please consider citing this paper as shown below
+Thank you for checking this project out. If you find this work helpful, please consider citing this paper as shown below
 
-***TODO*** add citation
+```
+TODO bibtex
+```
 
 ---
 
-### 2. Prerequisites
+The novel framework is a combination of **three** packages / modules 
 
-* [ROS 2 Humble Hawksbill](https://docs.ros.org/en/humble/index.html)
+* ```orb_slam3_ros2```: A MKVSLAM package based on [ROS2 ORB-SLAM3 V1.0](https://github.com/Mechazo11/ros2_orb_slam3) VSLAM system.
+
+* ```py_ob_detector_yolov5``` A custom ROS 2 package that implements [YOLOv5 V5.0](https://github.com/ultralytics/yolov5), a PyTorch-based Object Detector. This package may be used in a **stand-alone** configuration with minor modifications. Please see the ```README.md``` file in  package for more details
+
+* ```matimg_custom_msg_interface```, a package containing all custom messages required to transfer the semantic matrix between the MKVSLAM and Object Detector nodes.
+
+* All experiments were done in a laptop with the following configurations
+    * Ubuntu 22.04 Jammy Jellyfish
+    * Intel i5-9300H
+    * Nvidia RTX 2060
+    * 16 GB ram. 
+    * **Note!**, ORB-SLAM3 is a [memory-intensive application](https://github.com/Mechazo11/ros2_orb_slam3/issues/7) and requires at least 16Gb RAM with 8Gb swap during compilation.
+
+
+
+### Key results are given below
+
+**TODO** add a picture of the results slide
+ 
+---
+
+## 2. Paper, Contributions and License 
+
+
+
+### 3. Prerequisites
+
+The following software needs to be installed and tested before building the workspace in this directory.
+
+* ROS 2 [Humble Hawksbill](https://docs.ros.org/en/humble/index.html)
 
 * Colcon: ```sudo apt install python3-colcon-common-extensions```
 
@@ -73,11 +86,11 @@ Thank you for taking the time in checking this project out. If you find this wor
 
 ---
 
-## 2. Installation
+## 4. Installation
 
 The following steps must be performed in sequence as shown below
 
-### Step 0: Configure ```.bashrc``` to use ```ros2_config.sh``` and dynamic library paths
+### Configure ```.bashrc``` to use ```ros2_config.sh``` and dynamic library paths
 
 * Download ```ros2_config.sh``` from ```\shell_script``` folder into ```\home```
 
@@ -96,29 +109,41 @@ fi
 
 
 
-### Step 1b: Setup the workspace and important directories
+### Build workspace
 
 Name has to be exactly same,
 
 ---
 
-## Step 2: How to run?
+### Setup datasets
 
 TODO
 
 ---
 
+### Setup Yolov5
 
-## Acknowledgement
+TODO
+
+---
+
+### Run the framework
+
+TODO
+
+---
+
+### Evaluate results
+
+TODO
+
+--
+
+### Acknowledgement
 
 The authors would like to acknowledge financial support from NSF #2024795, and the Louisiana Board Of Regents Support Fund, under the Louisiana Materials Design Alliance (LAMDA), provided by the Board as cost share to the NSF under grant number OIA-#1946231.
 
 ---
-
-## Bibliography
-
-TODO
-
 
 
 
@@ -126,12 +151,15 @@ TODO
 
 - [ ] Update README.md file with clear step by step instruciton on setting up the system
 
+- [ ] Delete all package 2 related codes, ros2_tictoc_profiler, line_lbd, fast_mf
 
 - [ ] Test execution commands and make sure only two terminals is sufficient
 
 - [ ] Start Zenodo and only publish LSU_iCORE_MONO dataset with instructions on how to download and setup the EuRoC and TUM FR2 dataset [1st week July 2024]
 
-- [ ] Delete all package 2 related codes, ros2_tictoc_profiler, line_lbd, fast_mf
+- [ ] Upload all weights to Zendo and then download and test to make sure they work
+
+* [ ] For making a custom dataset work with the YOLOv5 in py_obj_detector, custom yaml files are needed. State how to add them into the /global_yaml files . This information needs to be placed ion the ```ros2_psd_pcb``` repository
 
 * [ ] Make sure to mention that dataset names must be in all caps
 
@@ -139,9 +167,7 @@ TODO
 
 * [ ] make sure to state only pinhole camera models was tested in this framework
 
-* [ ] For making a custom dataset work with the YOLOv5 in py_obj_detector, custom yaml files are needed. State how to add them into the /global_yaml files . This information needs to be placed ion the ```ros2_psd_pcb``` repository
 
-* [ ] Clear all the TODO paragraphs
 
 ## DONE
 
