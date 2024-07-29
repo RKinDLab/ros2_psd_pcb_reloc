@@ -74,7 +74,7 @@ class AgentObjectDetector(Node):
         # Each subdiretory contains image sequence datasets to complete one full experiment
         self.sub_dir = ""
         if self.experiment_name == "ieeeaim2024":
-            self.sub_dir = "IEEAIM2024_DATASETS/"
+            self.sub_dir = "IEEEAIM2024_DATASETS/"
         else:
             self.sub_dir = "OTHERS/"
         self.path_to_subdir = str(Path.home()) + "/DATASETS/" + self.sub_dir

@@ -1,9 +1,6 @@
 # orb_slam3_ros2
 
-This is my version of ORB SLAM 3 in ROS 2 that incorporates semantic data and multi-agent systems
-
-
-TODO needs a cleaner writeup
+An open-source VSLAM framework. Original paper 
 
 
 ### Useful Reference / Reading materials
@@ -16,9 +13,9 @@ TODO needs a cleaner writeup
 
 * [Spatial Transformation matrices](https://www.brainvoyager.com/bv/doc/UsersGuide/CoordsAndTransforms/SpatialTransformationMatrices.html)
 
-* [shell scripting](https://www.shellscript.sh/variables1.html)
+* 
 
-* How to use GDB with ROS2 [gdb with ros2](https://juraph.com/miscellaneous/ros2_and_gdb/)
+
 
 ### Requirements
 
