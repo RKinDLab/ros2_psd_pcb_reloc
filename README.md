@@ -25,7 +25,7 @@ This work was presented in [2024 IEEE/ASME International Conference on Advanced 
 
 * A side-by-side comparison between the proposed and DBoW2 based short-term relocalization frameworks is shown below
 
-
+https://github.com/user-attachments/assets/8972fc59-4c30-444c-813f-4f9af7ffd1bd
 
 
 ## 1. Contributions and Bibliography
