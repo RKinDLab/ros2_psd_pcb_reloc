@@ -13,7 +13,8 @@ For brevity, we have divided this README into the following sections,
 
 - Introduction
 - Overview / Key Results / Bibliography
-- How to Use?
+- Setup
+- Run the framework
 
 ---
 
@@ -74,7 +75,7 @@ The novel framework is implemented as a combination of **three** packages / modu
 
 ---
 
-## How to Use?
+## Setup
 
 ### Prerequisits
 
@@ -94,17 +95,13 @@ Please install and test the following software before building the workspace in 
 
 - Requests: ```pip3 install requests```
 
-### Setup workspace
-
-Perform the following steps in sequence
-
-#### Configure ```.bashrc``` to use ```ros2_config.sh``` and add dynamic library paths
+### Configure .bashrc
 
 I have used ```ros2_config.sh```, a shell script that automatically loads all the necessary configurations and sources both ros global and local workspaces everytime a new terminal is opened.
 
 - Copy ```ros2_config.sh``` from ```\shell_script``` folder into ```\home```
 
-- In ```.bashrc```, add the following lines at the very end of the file
+- Add the following lines at the very end of the file of ```.bashrc```
 
 ```text
 source ~/ros2_config.sh
@@ -114,11 +111,11 @@ if [[ ":$LD_LIBRARY_PATH:" != *":/usr/local/lib:"* ]]; then
 fi
 ```
 
-#### Build workspace
+### Build workspace
 
 This workspace must be placed in ```\home``` directory as shown below
 
-Open a new terminal and execute the following commands
+- Open a new terminal and execute the following commands
 
 ```console
 cd ~
@@ -128,36 +125,28 @@ colcon build --symlink-install
 source ./install/setup.bash
 ```
 
-#### Zendo link
+#### Setup DATASETS/IEEEAIM2024_DATASETS
 
-For ease of demonstration, we have packaged two EuRoC MAV dataset ```MH05, V201``` and all three datasets of ```LSU_ICORE_MONO``` datasets along with all YOLOv5 weights used for the paper in this [Zendo]() repository. Please download them before proceeding to the next steps.
+For demonstrating how to use this framework, we have packed all image sequencse from our in-house UGV dataset ```LSU_ICORE_MONO```, the ```MH05```, ```V201``` datasets from [EuRoC MAV](https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets) and the ```FR2PS1```, which is a **ETH ASL** compliant version of the ```fr2/pioneer_slam``` dataset from [TUM RGBD SLAM](https://cvg.cit.tum.de/data/datasets/rgbd-dataset/download) dataset and all the weights in this [LSU_AIM2024 repository]() Zenodo repository. After downloading the files, do the following
 
-### Setup DATASETS/IEEEAIM2024_DATASETS
-
-This framework expects all monocular scenarios will be available as their separate directories in ```/home/DATASETS/IEEEAIM2024_DATASETS``` in the following tree structure
-
-![tree_struct](figs/tree.png)
-
-- First create the ```DATASETS``` in ```/home``` directory as shown below
+- Create the ```DATASETS\``` directories in ```\home``` directory as shown below
 
 ```console
 cd ~
 mkdir DATASETS
 ```
 
-
-
-
+- Copy the ```IEEEAIM2024_DATASETS``` directory from ```LSU_AIM2024``` into ```home\DATASETS\``` so that the directory looks like the following ![tree_struct](figs/tree.png)
 
 ---
 
-### Download the weights for YOLOv5
+#### Download the weights for YOLOv5
 
-TODO
+- Copy the ```.pt``` files from ```LSU_AIM2024\Weights``` into ```src\py_obj_detector_yolov5_ros2\weights_config``` directory
 
 ---
 
-### Run the framework
+#### Run the framework
 
 Once the ```DATASET``` directories with data for individual experiment scenarios have been setup and the YOLOv5 network has been setup, open three terminal windows and in all three, change directory into ```ros2_psd_pcb``` using ```cd ~/ros2_psd_pcb/```. 
 
