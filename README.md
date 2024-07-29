@@ -9,16 +9,17 @@
 
 All authors are with the Department of Mechanical Engineering at Louisiana State University, Baton Rouge, Louisiana, United States of America.
 
+For brevity, we have divided this README into the following sections,
+
+- Introduction
+- Overview / Key Results / Bibliography
+- How to Use?
+
 ---
 
 ## Introduction
 
-This repository is a complete ***ROS 2 workspace*** which includes the proposed short-term relocalization framework along with the presentation slides and the paper. For brevity, we have divided this README into the following sections. 
-
-- Introduction
-- Contributions
-- Important Results
-- How to Use?
+This repository is a complete ***ROS 2 workspace*** which includes the proposed short-term relocalization framework along with the presentation slides and the paper. Following ORB-SLAM3 and YOLOv5, this framework also uses [GPLv3](https://gist.github.com/kn9ts/cbe95340d29fc1aaeaa5dd5c059d2e60) License.
 
 This work was presented in [2024 IEEE/ASME International Conference on Advanced Intelligent Mechatronics](https://www.aim2024.org/).
 
@@ -30,14 +31,16 @@ This work was presented in [2024 IEEE/ASME International Conference on Advanced 
 
 https://github.com/user-attachments/assets/8972fc59-4c30-444c-813f-4f9af7ffd1bd
 
-This framework adheres to GPL V3.0
+Thank you for your interest in our work. If you find this project useful, please consider citing the following paper
 
-RESUME FROM HERE
+```
+TODO bibtex
+```
+---
 
+## Overview / Key Results / Bibliography
 
-## Contributions and Bibliography
-
-In this framework, we introduced a novel multimodal keyframe descriptor dubbed **Pose-Semantic-Descriptor (PSD)**  and a new Keyframe-based Place Recognition (KPR) method called the **Pose-Class-Box (PCB)** . Using the novel KPR method, we deomstrate an accurate and computationally efficient solution to the **short-term relocalization** problem, outperforming to the popular relocalization framework based on [DBoW2](https://github.com/dorian3d/DBoW2) that comes standard in the [ORB-SLAM3](https://github.com/UZ-SLAMLab/ORB_SLAM3) framework.
+In this framework, we introduced a novel multimodal keyframe descriptor dubbed **Pose-Semantic-Descriptor (PSD)**  and a new Keyframe-based Place Recognition (KPR) method called the **Pose-Class-Box (PCB)** . Using the novel KPR method, we deomstrate an accurate and computationally efficient solution to the **short-term relocalization** problem, outperforming to the popular relocalization framework based on [DBoW2](https://github.com/dorian3d/DBoW2) which comes standard in the [ORB-SLAM3](https://github.com/UZ-SLAMLab/ORB_SLAM3) framework.
 
 The contributions of this work are listed below
 
@@ -47,17 +50,11 @@ The contributions of this work are listed below
 
 - The integration of the proposed descriptor and KPR method for iwithin the open-source ORB-SLAM3 VSLAM framework.
 
-Following ORB-SLAM3 and YOLOv5, this framework will also use [GPLv3](https://gist.github.com/kn9ts/cbe95340d29fc1aaeaa5dd5c059d2e60) License
+Important results from this work are shown below
 
-Thank you for checking this project out. If you find this work helpful, please consider citing this paper as shown below
+<!-- ![results](figs/key_results.JPG) -->
 
-```
-TODO bibtex
-```
-
----
-
-The novel framework is a combination of **three** packages / modules 
+The novel framework is implemented as a combination of **three** packages / modules 
 
 * ```orb_slam3_ros2```: A MKVSLAM package based on [ROS2 ORB-SLAM3 V1.0](https://github.com/Mechazo11/ros2_orb_slam3) VSLAM system.
 
@@ -70,25 +67,18 @@ The novel framework is a combination of **three** packages / modules
     * Intel i5-9300H
     * Nvidia RTX 2060
     * 16 GB ram. 
-    * **Note!**, ORB-SLAM3 is a [memory-intensive application](https://github.com/Mechazo11/ros2_orb_slam3/issues/7) and requires at least 16Gb RAM with 8Gb swap during compilation.
 
+**Note!**, ORB-SLAM3 is a very [memory-intensive application](https://github.com/Mechazo11/ros2_orb_slam3/issues/7). It is highly recommended to have at least 16Gb RAM with 8Gb swap during compilation.
 
-
-## Important Results
-
-**TODO** add a picture of the results slide
- 
 ---
 
-## 2. Paper, Contributions and License 
+## How to Use?
 
+### Prerequisits
 
+Please install and test the following software before building the workspace in this directory.
 
-### 3. Prerequisites
-
-The following software needs to be installed and tested before building the workspace in this directory.
-
-* ROS 2 [Humble Hawksbill](https://docs.ros.org/en/humble/index.html)
+* ROS 2 Humble Hawksbill:  [tutorial](https://docs.ros.org/en/humble/index.html)
 
 * Colcon: ```sudo apt install python3-colcon-common-extensions```
 
@@ -96,24 +86,25 @@ The following software needs to be installed and tested before building the work
 
 * Numpy: ```pip3 install numpy```
 
-* Install CUDA with Pytorch: Follow this [tutorial](https://docs.vultr.com/how-to-install-pytorch-on-ubuntu-22-04)
+* PyTorch with CUDA: [installation](https://docs.vultr.com/how-to-install-pytorch-on-ubuntu-22-04) and [test](https://stackoverflow.com/questions/48152674/how-do-i-check-if-pytorch-is-using-the-gpu)
+
+* Natsort : ```pip3 install natsort```
 
 ---
 
-## 4. Installation
+### Setup workspace
 
-The following steps must be performed in sequence as shown below
+Perform the following steps in sequence
 
-### Configure ```.bashrc``` to use ```ros2_config.sh``` and dynamic library paths
+#### Configure ```.bashrc``` to use ```ros2_config.sh``` and add dynamic library paths
 
-* Download ```ros2_config.sh``` from ```\shell_script``` folder into ```\home```
+I have used ```ros2_config.sh```, a shell script that automatically loads all the necessary configurations and sources both ros global and local workspaces everytime a new terminal is opened.
 
-* In ```.bashrc``` file, add the following lines at the very end of the file
+- Copy ```ros2_config.sh``` from ```\shell_script``` folder into ```\home```
 
-* ```ros2_config.sh``` will automatically load all the configurations and source both ros global and local workspaces everytime a new terminal is opened
+- In ```.bashrc```, add the following lines at the very end of the file
 
-???
-```
+```text
 source ~/ros2_config.sh
 
 if [[ ":$LD_LIBRARY_PATH:" != *":/usr/local/lib:"* ]]; then
@@ -121,11 +112,19 @@ if [[ ":$LD_LIBRARY_PATH:" != *":/usr/local/lib:"* ]]; then
 fi
 ```
 
+#### Build workspace
 
+This workspace must be placed in ```\home``` directory to work. 
 
-### Build workspace
+Open a new terminal and execute the following commands
 
-Name has to be exactly same,
+```console
+cd ~
+git clone https://github.com/RKinDLab/ros2_psd_pcb_reloc
+cd ros2_psd_pcb_reloc
+colcon build
+source ./install/setup.bash
+```
 
 ---
 
