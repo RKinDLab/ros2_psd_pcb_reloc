@@ -11,11 +11,14 @@ All authors are with the Department of Mechanical Engineering at Louisiana State
 
 ---
 
-## 0. Introduction
+## Introduction
 
-This repository is a complete ***ROS 2 workspace*** which includes the proposed short-term relocalization framework along with the presentation slides and the paper.
+This repository is a complete ***ROS 2 workspace*** which includes the proposed short-term relocalization framework along with the presentation slides and the paper. For brevity, we have divided this README into the following sections. 
 
-In this framework, we introduced a novel multimodal keyframe descriptor dubbed **Pose-Semantic-Descriptor (PSD)**  and a new Keyframe-based Place Recognition (KPR) method called the **Pose-Class-Box (PCB)** . Using the novel KPR method, we deomstrate an accurate and computationally efficient solution to the **short-term relocalization** problem, outperforming to the popular relocalization framework based on [DBoW2](https://github.com/dorian3d/DBoW2) that comes standard in the [ORB-SLAM3](https://github.com/UZ-SLAMLab/ORB_SLAM3) framework.
+- Introduction
+- Contributions
+- Important Results
+- How to Use?
 
 This work was presented in [2024 IEEE/ASME International Conference on Advanced Intelligent Mechatronics](https://www.aim2024.org/).
 
@@ -27,8 +30,14 @@ This work was presented in [2024 IEEE/ASME International Conference on Advanced 
 
 https://github.com/user-attachments/assets/8972fc59-4c30-444c-813f-4f9af7ffd1bd
 
+This framework adheres to GPL V3.0
 
-## 1. Contributions and Bibliography
+RESUME FROM HERE
+
+
+## Contributions and Bibliography
+
+In this framework, we introduced a novel multimodal keyframe descriptor dubbed **Pose-Semantic-Descriptor (PSD)**  and a new Keyframe-based Place Recognition (KPR) method called the **Pose-Class-Box (PCB)** . Using the novel KPR method, we deomstrate an accurate and computationally efficient solution to the **short-term relocalization** problem, outperforming to the popular relocalization framework based on [DBoW2](https://github.com/dorian3d/DBoW2) that comes standard in the [ORB-SLAM3](https://github.com/UZ-SLAMLab/ORB_SLAM3) framework.
 
 The contributions of this work are listed below
 
@@ -65,7 +74,7 @@ The novel framework is a combination of **three** packages / modules
 
 
 
-### Key results are given below
+## Important Results
 
 **TODO** add a picture of the results slide
  
