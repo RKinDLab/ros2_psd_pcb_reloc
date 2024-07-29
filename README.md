@@ -13,17 +13,24 @@ All authors are with the Department of Mechanical Engineering at Louisiana State
 
 ## 0. Introduction
 
-This repository contains a complete ***ROS 2 workspace*** that contains a modified ORB-SLAM3 SLAM framework paired with a YoloV5 object detector for solving the **short-term relocalization** problem using a novel multimodal keyframe descriptor dubbed **Pose-Semantic-Descriptor (PSD)**  and a new Keyframe-based Place Recognition (KPR) method called the **Pose-Class-Box (PCB)** method. This work was presented in [2024 IEEE/ASME International Conference on Advanced Intelligent Mechatronics](https://www.aim2024.org/). A short video demonstrating the performance of the proposed and DBoW2 based short-term relocalization methods is shown below
+This repository is a complete ***ROS 2 workspace*** which includes the proposed short-term relocalization framework along with the presentation slides and the paper.
 
-* [arXiv](TODO) 
+In this framework, we introduced a novel multimodal keyframe descriptor dubbed **Pose-Semantic-Descriptor (PSD)**  and a new Keyframe-based Place Recognition (KPR) method called the **Pose-Class-Box (PCB)** . Using the novel KPR method, we deomstrate an accurate and computationally efficient solution to the **short-term relocalization** problem, outperforming to the popular relocalization framework based on [DBoW2](https://github.com/dorian3d/DBoW2) that comes standard in the [ORB-SLAM3](https://github.com/UZ-SLAMLab/ORB_SLAM3) framework.
+
+This work was presented in [2024 IEEE/ASME International Conference on Advanced Intelligent Mechatronics](https://www.aim2024.org/).
+
+* [Preprint paper](TODO) 
 
 * [Slides](https://docs.google.com/presentation/d/1p_Ukic0ZfXyZjq8wjxNMZpKOc4GEQOv2/edit?usp=sharing&ouid=110812301970152705380&rtpof=true&sd=true) 
 
-* A video of the proposed system in action is shown below
+* A side-by-side comparison between the proposed and DBoW2 based short-term relocalization frameworks is shown below
 
-TODO RESUME FROM HERE
+<video width="320" height="240" controls>
+  <source src="asset/side_by_side_video_rover.mp4" type="video/mp4">
+</video>
 
-## 1. High-level Description / Contributions / Bibliography
+
+## 1. Contributions and Bibliography
 
 The contributions of this work are listed below
 
