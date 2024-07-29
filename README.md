@@ -40,7 +40,7 @@ TODO bibtex
 
 ## Overview / Key Results / Bibliography
 
-In this framework, we introduced a novel multimodal keyframe descriptor dubbed **Pose-Semantic-Descriptor (PSD)**  and a new Keyframe-based Place Recognition (KPR) method called the **Pose-Class-Box (PCB)** . Using the novel KPR method, we deomstrate an accurate and computationally efficient solution to the **short-term relocalization** problem, outperforming to the popular relocalization framework based on [DBoW2](https://github.com/dorian3d/DBoW2) which comes standard in the [ORB-SLAM3](https://github.com/UZ-SLAMLab/ORB_SLAM3) framework.
+In this framework, we introduced a novel multimodal keyframe descriptor dubbed **Pose-Semantic-Descriptor (PSD)**  and a new Keyframe-based Place Recognition (KPR) method called the **Pose-Class-Box (PCB)** . Using the novel KPR method, we deomstrate an accurate and computationally efficient solution to the **short-term relocalization** problem, outperforming to the popular relocalization framework based on [DBoW2](https://github.com/dorian3d/DBoW2) which comes standard in the [ORB-SLAM3](https://github.com/UZ-SLAMLab/ORB_SLAM3) framework. At this time, the proposed framework has been only tested with the **PINHOLE** camera model.
 
 The contributions of this work are listed below
 
@@ -66,7 +66,9 @@ The novel framework is implemented as a combination of **three** packages / modu
     * Ubuntu 22.04 Jammy Jellyfish
     * Intel i5-9300H
     * Nvidia RTX 2060
-    * 16 GB ram. 
+    * 16 GB ram
+
+* In this implementation, the **python nodes** are the primary driver of the system as it ingests image frames from chosen directory and then supplies the **Semantic Matrix** to the C++ VSLAM nodes.
 
 **Note!**, ORB-SLAM3 is a very [memory-intensive application](https://github.com/Mechazo11/ros2_orb_slam3/issues/7). It is highly recommended to have at least 16Gb RAM with 8Gb swap during compilation.
 
@@ -78,19 +80,19 @@ The novel framework is implemented as a combination of **three** packages / modu
 
 Please install and test the following software before building the workspace in this directory.
 
-* ROS 2 Humble Hawksbill:  [tutorial](https://docs.ros.org/en/humble/index.html)
+- ROS 2 Humble Hawksbill:  [tutorial](https://docs.ros.org/en/humble/index.html)
 
-* Colcon: ```sudo apt install python3-colcon-common-extensions```
+- Colcon: ```sudo apt install python3-colcon-common-extensions```
 
-* Eigen3: ```sudo apt install libeigen3-dev```
+- Eigen3: ```sudo apt install libeigen3-dev```
 
-* Numpy: ```pip3 install numpy```
+- Numpy: ```pip3 install numpy```
 
-* PyTorch with CUDA: [installation](https://docs.vultr.com/how-to-install-pytorch-on-ubuntu-22-04) and [test](https://stackoverflow.com/questions/48152674/how-do-i-check-if-pytorch-is-using-the-gpu)
+- PyTorch with CUDA: [installation](https://docs.vultr.com/how-to-install-pytorch-on-ubuntu-22-04) and [test](https://stackoverflow.com/questions/48152674/how-do-i-check-if-pytorch-is-using-the-gpu)
 
-* Natsort : ```pip3 install natsort```
+- Natsort : ```pip3 install natsort```
 
----
+- Requests: ```pip3 install requests```
 
 ### Setup workspace
 
@@ -114,7 +116,7 @@ fi
 
 #### Build workspace
 
-This workspace must be placed in ```\home``` directory to work. 
+This workspace must be placed in ```\home``` directory as shown below
 
 Open a new terminal and execute the following commands
 
@@ -122,19 +124,34 @@ Open a new terminal and execute the following commands
 cd ~
 git clone https://github.com/RKinDLab/ros2_psd_pcb_reloc
 cd ros2_psd_pcb_reloc
-colcon build
+colcon build --symlink-install
 source ./install/setup.bash
 ```
 
+#### Zendo link
+
+For ease of demonstration, we have packaged two EuRoC MAV dataset ```MH05, V201``` and all three datasets of ```LSU_ICORE_MONO``` datasets along with all YOLOv5 weights used for the paper in this [Zendo]() repository. Please download them before proceeding to the next steps.
+
+### Setup DATASETS/IEEEAIM2024_DATASETS
+
+This framework expects all monocular scenarios will be available as their separate directories in ```/home/DATASETS/IEEEAIM2024_DATASETS``` in the following tree structure
+
+![tree_struct](figs/tree.png)
+
+- First create the ```DATASETS``` in ```/home``` directory as shown below
+
+```console
+cd ~
+mkdir DATASETS
+```
+
+
+
+
+
 ---
 
-### Setup datasets
-
-TODO
-
----
-
-### Setup Yolov5
+### Download the weights for YOLOv5
 
 TODO
 
@@ -142,7 +159,15 @@ TODO
 
 ### Run the framework
 
-TODO
+Once the ```DATASET``` directories with data for individual experiment scenarios have been setup and the YOLOv5 network has been setup, open three terminal windows and in all three, change directory into ```ros2_psd_pcb``` using ```cd ~/ros2_psd_pcb/```. 
+
+**NOTE!**, the C++ nodes must be started **first** before launching the python node since a ```handshake``` is performed between the C++ and Python node to pass all experiment and configuration parameters.
+
+- Run ***robot0*** slam node:  ```ros2 run orb_slam3_ros2 vslam_node --ros-args -p agent_name:=robot0```
+
+- Run ***robot1*** slam node:  ```ros2 run orb_slam3_ros2 vslam_node --ros-args -p agent_name:=robot1```
+
+- Run python nodes : ```ros2 run py_obj_detector_yolov5_ros2 robot_combined_nn --ros-args -p experiment:="ieeeaim2024" -p image_sequence:="MH05"```
 
 ---
 
@@ -158,34 +183,22 @@ The authors would like to acknowledge financial support from NSF #2024795, and t
 
 ---
 
-
-
 ## TODOs
-
-- [ ] Update README.md file with clear step by step instruciton on setting up the system
-
-- [ ] Delete all package 2 related codes, ros2_tictoc_profiler, line_lbd, fast_mf
-
-- [ ] Test execution commands and make sure only two terminals is sufficient
 
 - [ ] Start Zenodo and only publish LSU_iCORE_MONO dataset with instructions on how to download and setup the EuRoC and TUM FR2 dataset [1st week July 2024]
 
 - [ ] Upload all weights to Zendo and then download and test to make sure they work
 
-* [ ] For making a custom dataset work with the YOLOv5 in py_obj_detector, custom yaml files are needed. State how to add them into the /global_yaml files . This information needs to be placed ion the ```ros2_psd_pcb``` repository
+- [ ] For making a custom dataset work with the YOLOv5 in py_obj_detector, custom yaml files are needed. State how to add them into the /global_yaml files . This information needs to be placed ion the ```ros2_psd_pcb``` repository
 
-* [ ] Make sure to mention that dataset names must be in all caps
-
-* [ ] Make sure to mention that the camera intrinsic matrice YAML may be different from ORB SLAM3 V1
-
-* [ ] make sure to state only pinhole camera models was tested in this framework
-
-
+- [ ] Double check to make sure the VSLAM nodes are loading their camera configuration settings
 
 ## DONE
 
 - [x] Build and test the packages [05/20/24]
 - [x] Better introduction line shown in the top-left [07/02/24]
+- [x] Update README.md file with clear step by step instruciton on setting up the system
+- [x] Delete all package 2 related codes, ros2_tictoc_profiler, line_lbd, fast_mf
 
 ## Misc.
 
