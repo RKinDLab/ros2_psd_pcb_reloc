@@ -26,7 +26,7 @@ This repository is a complete ***ROS 2 workspace*** which includes the proposed 
 
 This work was presented in [2024 IEEE/ASME International Conference on Advanced Intelligent Mechatronics](https://www.aim2024.org/).
 
-* [Paper](TODO) 
+* [Paper](https://arxiv.org/abs/2407.19518) 
 
 * [Slides](https://docs.google.com/presentation/d/1p_Ukic0ZfXyZjq8wjxNMZpKOc4GEQOv2/edit?usp=sharing&ouid=110812301970152705380&rtpof=true&sd=true) 
 
@@ -130,7 +130,7 @@ source ./install/setup.bash
 
 ### Setup DATASETS/IEEEAIM2024_DATASETS directory
 
-For demonstrating how to use this framework, we have packed all image sequencse from our in-house UGV dataset ```LSU_ICORE_MONO```, the ```MH05```, ```V201``` datasets from [EuRoC MAV](https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets) and the ```FR2PS1```, which is an **ETH ASL** compliant version of the ```fr2/pioneer_slam``` dataset from [TUM RGBD SLAM](https://cvg.cit.tum.de/data/datasets/rgbd-dataset/download) dataset and all the weights in this [LSU_AIM2024](https://zenodo.org/records/13127579) Zenodo repository. After downloading the files, do the following
+For demonstrating how to use this framework, we have packed all image sequencse from our in-house UGV dataset ```LSU_ICORE_MONO``` and all the neural network weights in this [LSU_AIM2024](https://zenodo.org/records/13137352) Zenodo repository. After downloading the files, do the following 
 
 - Create the ```DATASETS``` directory in ```home``` directory as shown below
 
@@ -140,6 +140,10 @@ mkdir DATASETS
 ```
 
 - Copy the ```IEEEAIM2024_DATASETS``` folders from ```LSU_AIM2024``` into ```/home/DATASETS``` directory. After copying, the ```DATASETS``` directory should look like the following ![tree_struct](figs/tree.png)
+
+For sequences from [EuRoC MAV](https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets) simply download the image sequences and put them in the ```/home/DATASETS/IEEEAIM2024_DATASETS``` directory. Refer to the image attached above.
+
+However, for the sequences from [TUM RGBD SLAM](https://cvg.cit.tum.de/data/datasets/rgbd-dataset/download) dataset, these were modified to be **ETH-ASL** compliant for use with this experiment. We will update this repo in future with instructions on how to download and modify the SLAM sequences to be compatible with this system.
 
 **NOTE!** during runtime, ground-truth data is not required.
 
@@ -161,7 +165,7 @@ Open three terminals and execute the following
 
 - Run ***robot1*** slam node:  ```ros2 run orb_slam3_ros2 vslam_node --ros-args -p agent_name:=robot1```
 
-- Run python nodes : ```ros2 run py_obj_detector_yolov5_ros2 robot_combined_nn --ros-args -p experiment:="ieeeaim2024" -p image_sequence:="MH05"```
+- Run python nodes : ```ros2 run py_obj_detector_yolov5_ros2 robot_combined_nn --ros-args -p experiment:="ieeeaim2024" -p image_sequence:="ROBOTICSLAB0"```
 
 **NOTE!** The name string passed for ```image_sequence``` must match the name of the dataset given inside the ```DATASETS/IEEEAIM2024_DATASETS``` directory.
 
@@ -210,7 +214,7 @@ Due to time constraint, we have not uploaded the steps and scripts required to p
 ## TODOs
 
 - [ ] Release the training codes for YOLOv5 that we used for this experiment
-- [ ] Add links to arXiv and IEEE Xplore versions of this paper
+- [x] Add link to arXiv version of the final paper
 - [x] Build and test the packages [05/20/24]
 - [x] Better introduction line shown in the top-left [07/02/24]
 - [x] Update README.md file with clear step by step instruciton on setting up the system
