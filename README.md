@@ -26,7 +26,7 @@ This repository is a complete ***ROS 2 workspace*** which includes the proposed 
 
 This work was presented in [2024 IEEE/ASME International Conference on Advanced Intelligent Mechatronics](https://www.aim2024.org/).
 
-* [Paper](https://arxiv.org/abs/2407.19518) 
+* [paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10637187)
 
 * [Slides](https://docs.google.com/presentation/d/1p_Ukic0ZfXyZjq8wjxNMZpKOc4GEQOv2/edit?usp=sharing&ouid=110812301970152705380&rtpof=true&sd=true) 
 
@@ -36,9 +36,15 @@ https://github.com/user-attachments/assets/8972fc59-4c30-444c-813f-4f9af7ffd1bd
 
 Thank you very much for your interest in our work. If you have any questions, comments and suggestions, please don't hesitate to opening an **Issue** in this repository. If you find this project useful, please consider citing the paper as shown below
 
+```bibex
+@article{kamal2024solving,
+  title={Solving Short-Term Relocalization Problems In Monocular Keyframe Visual SLAM Using Spatial And Semantic Data},
+  author={Kamal, Azmyin Md. and Dadson, Nenyi KN and Gegg, Donovan and Barbalata, Corina},
+  journal={arXiv preprint arXiv:2407.19518},
+  year={2024}
+}
 ```
-TODO bibtex
-```
+
 ---
 
 ## Overview / Key Results / Bibliography
