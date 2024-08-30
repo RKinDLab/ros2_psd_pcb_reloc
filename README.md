@@ -37,11 +37,13 @@ https://github.com/user-attachments/assets/8972fc59-4c30-444c-813f-4f9af7ffd1bd
 Thank you very much for your interest in our work. If you have any questions, comments and suggestions, please don't hesitate to opening an **Issue** in this repository. If you find this project useful, please consider citing the paper as shown below
 
 ```bibex
-@article{kamal2024solving,
+@inproceedings{kamal2024solving,
   title={Solving Short-Term Relocalization Problems In Monocular Keyframe Visual SLAM Using Spatial And Semantic Data},
-  author={Kamal, Azmyin Md. and Dadson, Nenyi KN and Gegg, Donovan and Barbalata, Corina},
-  journal={arXiv preprint arXiv:2407.19518},
-  year={2024}
+  author={Kamal, Azmyin Md and Dadson, Nenyi Kweku Nkensen and Gegg, Donovan and Barbalata, Corina},
+  booktitle={2024 IEEE International Conference on Advanced Intelligent Mechatronics (AIM)},
+  pages={615--622},
+  year={2024},
+  organization={IEEE}
 }
 ```
 
