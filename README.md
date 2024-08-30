@@ -14,7 +14,7 @@ For brevity, we have divided this README into the following sections,
 - Introduction
 - Overview / Key Results / Bibliography
 - Setup
-- Side-by-Side Execution of Relocalization Systems
+- Demo and Side-by-Side Comparison
 - Acknowledgement
 - Closing remarks
 
