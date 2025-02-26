@@ -387,13 +387,6 @@ void Viewer::Run()
         if(menuShowPoints)
             mpMapDrawer->DrawMapPoints();
 
-        // TODO convert to a more generalzied function
-        if (mpMapDrawer->robot0StartRenderingObservedKFs){
-            
-            //std::cout << "Viewer::calling robot0DrawKeyframesFromRobot1" << std::endl;
-            mpMapDrawer->robot0DrawKeyframesFromRobot1(mpSystem->robot1KeyframeMap);
-        }
-
         // Draw world frame
         pangolin::glDrawAxis(5.0); // Originally 10.0, what happens if 5.0?
 

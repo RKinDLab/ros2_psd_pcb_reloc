@@ -132,8 +132,7 @@ class VSLAM: public rclcpp::Node
     // ROS 2 callbacks
     void experimentSetting_callback(const std_msgs::msg::String& msg); // Callback to process settings sent over by Python node
     void MatImg_callback(const matimg_custom_msg_interface::msg::MatImg& msg); // Callback to process RGB image and semantic matrix sent by Python node
-    void runFastMF_callback(const std_msgs::msg::String& msg);
-
+    
 };
 
 

@@ -3,23 +3,20 @@ project(orb_slam3_ros2)
 
 # TODO add this note https://github.com/mikeferguson/ros2_cookbook/blob/main/pages/cmake.md
 
-set(ENV{PYTHONPATH} "/opt/ros/humble/lib/python3.10/site-packages/") # Must be set to match your installation
+# TODO depricate this line 
+# set(ENV{PYTHONPATH} "/opt/ros/humble/lib/python3.10/site-packages/") # Must be set to match your installation
 
-# Must use C++17 to make it compatible with rclcpp
+# Set C++17 standard
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+# Set optimization flags
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O3")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O3")
 
-# Check C++17 support
-include(CheckCXXCompilerFlag)
-CHECK_CXX_COMPILER_FLAG("-std=c++17" COMPILER_SUPPORTS_CXX17)
-
-if(COMPILER_SUPPORTS_CXX17)
-  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
-  add_definitions(-DCOMPILEDWITHC17)
-  message(STATUS "Using flag -std=c++17.")
-else()
-  message(FATAL_ERROR "The compiler ${CMAKE_CXX_COMPILER} has no C++17 support. Please use a different C++ compiler.")
-endif()
+# Add definition if needed
+add_definitions(-DCOMPILEDWITHC17)
 
 LIST(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules)
 
@@ -35,9 +32,11 @@ find_package(Eigen3 3.3.0 REQUIRED) # Matched with Sophus
 find_package(Pangolin REQUIRED)
 find_package(image_transport REQUIRED)
 find_package(yaml-cpp REQUIRED) # jbeder's YAML parser and emitter library in C++
-find_package(ros2_tictoc_profiler REQUIRED) # ROS 2 library only package, port of Daniel Mataurna`s tictoc_profiler package
-find_package(ros2_tftn REQUIRED) # ROS 2 package containing Dr. Rui Fan`s Three Filters to Normal surface normal estimation technique
-find_package(ros2_fast_mf REQUIRED) # ROS 2 package containing the FastMF library
+
+# TODO these packages are not required
+# find_package(ros2_tictoc_profiler REQUIRED) # ROS 2 library only package, port of Daniel Mataurna`s tictoc_profiler package
+# find_package(ros2_tftn REQUIRED) # ROS 2 package containing Dr. Rui Fan`s Three Filters to Normal surface normal estimation technique
+# find_package(ros2_fast_mf REQUIRED) # ROS 2 package containing the FastMF library
 
 # DO NOT DELETE
 # Doesn't work, needs to work with very old version as discussed here https://github.com/lrse/sptam/issues/49
@@ -51,9 +50,10 @@ include_directories(include) # This package include
 include_directories(${EIGEN3_INCLUDE_DIRS}) # Include headers for eigen3
 include_directories(${Pangolin_INCLUDE_DIRS}) # include headers for pangolin
 include_directories(${OpenCV_INCLUDE_DIRS}) # include headers for pangolin
-include_directories(${ros2_tftn_INCLUDE_DIRS}) # ROS2 port of TFTN
-include_directories(${ros2_tictoc_profiler_INCLUDE_DIRS}) # Tictoc timing library
-include_directories(${ros2_fast_mf_INCLUDE_DIRS}) # FastMF library
+
+#include_directories(${ros2_tftn_INCLUDE_DIRS}) # ROS2 port of TFTN
+#include_directories(${ros2_tictoc_profiler_INCLUDE_DIRS}) # Tictoc timing library
+#include_directories(${ros2_fast_mf_INCLUDE_DIRS}) # FastMF library
 
 # ORB-SLAM3 includes
 include_directories(

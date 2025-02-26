@@ -2,7 +2,7 @@
  * @file vslam.cpp
  * @brief Implementation file for a number of classes of the VSLAM module
  * @author Azmyin Md. Kamal
- * @date 04/09/2024
+ * @date 04/09/2024 [version 1] 02/26/25 [updates]
 */
 
 #include "orb_slam3_ros2/vslam.hpp"    // Imports all necessary imports
@@ -220,8 +220,7 @@ void VSLAM::MatImg_callback(const matimg_custom_msg_interface::msg::MatImg& msg)
     cv_bridge::CvImagePtr cv_ptr_depth; 
     double rgb_timestep, depth_timestep;
     
-    // TODO move these debug view inside ORB SLAM3
-    // DEBUGGING, Show image
+    // DEBUGGING, test if Cpp nodes received RGB-D images from python (or other external nodes)
     // Update GUI Window
     // cv::imshow("rgb_image", cv_ptr_rgb->image);
     // cv::waitKey(3);
@@ -276,7 +275,7 @@ void VSLAM::MatImg_callback(const matimg_custom_msg_interface::msg::MatImg& msg)
 
     } else {
         // OTHERS
-        std::cerr << "OTHERS not implemented for IEEE AIM 2024" << std::endl;
+        std::cerr << "OTHERS not implemented for IEEE AIM 2024 paper" << std::endl;
         exit(-1);
         // Sophus::SE3f Tcw = pAgent->TrackRGBD_LSU(cv_ptr_rgb->image, cv_ptr_depth->image, 
         //                                     rgb_timestep, mat2);
@@ -285,21 +284,6 @@ void VSLAM::MatImg_callback(const matimg_custom_msg_interface::msg::MatImg& msg)
     // NOTE reserved for future use, Pose with respect to global image coordinate
     // Sophus::SE3f Twc = Tcw.inverse(); 
 }
-
-// TODO --------------------- remove in ros2_psd_pcb repo
-/**
- * @brief call back to process fastMF stuff
- * @todo needs rewrite
-*/
-void VSLAM::runFastMF_callback(const std_msgs::msg::String& msg){
-    std::cout <<"\n"<<std::endl;
-    std::cout << "Run FastMF for rendevouz event in agent0"<<std::endl;
-    std::cout <<"\n"<<std::endl;
-    
-    pAgent->run_fast_mf = true; // We don't need to see this just need to set this flag
-    subRunFastMF_subscription_.reset(); // Should unsubscribe from this topic
-}
-// TODO --------------------- remove in ros2_psd_pcb repo
 
 /**
  * @brief Set up all ROS topics names and 
@@ -324,7 +308,8 @@ void VSLAM::setupROSTopics(){
         // subscrbite to MatImg topics sent out by Python node
         subMatimg_subscription_= this->create_subscription<matimg_custom_msg_interface::msg::MatImg>(subMatimgName, 1, std::bind(&VSLAM::MatImg_callback, this, _1));
         // subscrbite to MatImg topics sent out by Python node
-        subRunFastMF_subscription_= this->create_subscription<std_msgs::msg::String>(subRunFastMFName, 1, std::bind(&VSLAM::runFastMF_callback, this, _1));
+        // TODO delete
+        // subRunFastMF_subscription_= this->create_subscription<std_msgs::msg::String>(subRunFastMFName, 1, std::bind(&VSLAM::runFastMF_callback, this, _1));
 
     }
     else

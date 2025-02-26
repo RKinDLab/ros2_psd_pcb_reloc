@@ -42,14 +42,6 @@
 #include <stdlib.h> 
 #include "CommonStructs.h" // Common structs useable across multiple classes
 
-// TODO ---------------------- remove for ros2_pcb_psd
-// TFTN library
-#include "ros2_tftn/tftn_class.hpp"    // tftn_class.hpp is the file where TFTN library is packaged as an object
-
-// FastMF library
-#include "ros2_fast_mf/fast_mf_lib.hpp"
-// TODO ---------------------- remove for ros2_pcb_psd
-
 namespace ORB_SLAM3
 {
 
@@ -165,48 +157,14 @@ public:
     /**
      * @brief Prints out the key and value of class labels from the unordered set
     */
-    void printObjectDatabase(std::unordered_map<float, std::string>& objData, const std::string& name); // Prints the Key Value pair from an std::unordered_map object
-
-    void ShutdownModified(); // Modified version, compatible with ROS2
-    
-    // TODO ------------------- remove in ros2_psd_pcb ------------------------
-    
-    // TFTN Surface Normal Estimator
-    ThreeFiltersToNormal tftn;
-    cv::Matx33d cameraK; // camera intrinsic matrix, openCV
-    std::vector<Object2DBBox> vObjNameWith2DBBox;
-    
-    // FastMF
-    FastMF fast_mf;     // Object to use Fast MF library
-
-    bool run_fast_mf = false;   // Set True from ROS level
-    std::mutex mMutexMultiAgent;
+    void printObjectDatabase(std::unordered_map<float, std::string>& objData, const std::string& name); 
     
     /**
-     * @brief Overloaded interface method, passes semantic matrix to Tracking class
-     * @attention: Used to interface with Tracking::GrabImageRGBD_LSU() driver method
-     * @todo needs to be remodified to make it work with ROS NOETIC VERSION
-    */
-    Sophus::SE3f TrackRGBD_LSU(const cv::Mat &im, const cv::Mat &depthmap,
-    const double &timestep, const eigenMatXf &sem_mat, const vector<IMU::Point>& vImuMeas = vector<IMU::Point>(), 
-    string filename="");
+     * @brief Extract and visualizes 2D bounding boxes from semantic matrix
+     */
+    void extractDataFromSemMat(const eigenMatXf &sem_mat,std::vector<Object2DBBox>& objsVecs, cv::Mat& imIn);
 
-    void robot0ComputeTcd1(Eigen::Matrix3d& R_f, Sophus::SE3f& Tc1, ROBOT1KF& Tcd1); // Computes Tcd1
-
-    int glob_cnt = 0;   // Counter to keep track of keyframes received from robot1
-    std::vector<ROBOT1KF> robot1KeyframeMap; 
-    bool start_sending_keyframes = false; // Set true from ROS level
-
-    cv::Mat prepDepthImageForTFTN(cv::Mat imDepth, double& mDepthMapFactor); // Implements processing of a depth.png image for the TFTN library.
-    cv::Mat generateCvImgFromSurfaceNormals(cv::Mat& resMat); // Returns an openCV image from a surface normal map
-    void visualizeSurfNormals(cv::Mat& resMat); // Draw 2D bounding box on surface normal image
-    void visualizeObjectSurfNormalsPatch(cv::Mat& surfIn, std::string& objName);
-
-    void extractDataFromSemMat(const eigenMatXf &sem_mat,std::vector<Object2DBBox>& objsVecs, cv::Mat& imIn); // From semantic matrix, populate the std::vector Object2DBBox objects 
-    void nsfRbkairosObj(std::vector<Object2DBBox>& objsVecs, cv::Mat &snMat, 
-                        Object2DBBox& objOut);
-    
-    // TODO ------------------- remove in ros2_psd_pcb ------------------------
+    void ShutdownModified(); // Modified version, compatible with ROS2
     
     // Initialize the SLAM system. It launches the Local Mapping, Loop Closing and Viewer threads.
     System(const string &strVocFile, const string &strSettingsFile, const eSensor sensor, const bool bUseViewer = true, const int initFr = 0, const string &strSequence = std::string());

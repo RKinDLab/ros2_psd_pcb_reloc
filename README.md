@@ -128,10 +128,17 @@ This workspace must be placed in ```\home``` directory as shown below
 
 * Clone this repo in `\home` as shown below
 
-```console
+```bash
 cd ~
 git clone https://github.com/RKinDLab/ros2_psd_pcb_reloc
+```
 
+* Source ROS 2 workspace and build the project
+
+```bash
+source /opt/ros/humble/setup.bash
+colcon build --symlink-install
+source ./install/setup.bash
 ```
 
 * Add the `ros2_tictoc_profiler`, a package containing useful time statistics tools
