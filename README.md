@@ -131,11 +131,12 @@ fi
 
 ### Build the workspace
 
-This workspace must be placed in ```\home``` directory. Additionally a ROS 2 Humble base workspace must be installed apriori. See [here](https://docs.ros.org/en/humble/Installation.html) for a tutorial on installing ROS 2 Humble. 
+This workspace must be placed in ```home``` directory. Additionally a ROS 2 Humble base workspace must be installed apriori. See [here](https://docs.ros.org/en/humble/Installation.html) for a tutorial on installing ROS 2 Humble. 
 
 ```bash
 cd ~
 git clone https://github.com/RKinDLab/ros2_psd_pcb_reloc
+cd ~/ros2_psd_pcb_reloc/
 source /opt/ros/humble/setup.bash
 colcon build --symlink-install
 source ./install/setup.bash
