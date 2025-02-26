@@ -6,3 +6,6 @@
 # Ignore all __pycache__ directories and *.pyc files anywhere in the repository
 **/__pycache__/
 **/*.pyc
+
+# Ignore VS Code settings
+.vscode/
