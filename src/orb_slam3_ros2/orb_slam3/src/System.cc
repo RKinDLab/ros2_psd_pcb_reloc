@@ -699,6 +699,180 @@ void System::Shutdown(){
 
 }
 
+
+/**
+ * @brief Modified verison
+ * @attention Prints out results for IEEE AIM 2024 experiment
+ * @note called from VSLAM::~VSLAM() method
+ * @todo Trajectory files are saved in the format ....
+*/
+void System::ShutdownModified()
+{   
+    // NOTES
+    //* 06/27/23 updated to call a `delete` operator to free memory for CubeSLAM's detect_cuboid_obj `pointer` object
+    //* 09/11 Both Frame by Frame and Keyframe by Keyframe trajectory estimates will be saved
+    //* 08/29 Updated to save trajectory files with experiment name and time when the experiment was launched
+    //* 08/29 robot0 represents the original orb-slam3 relocalization and robot1 represent the new SSD keyframe 
+    //* 09/11 Programmatically choose between saving in EuRoC (compatible with evo) and TUM format (for TUM and all other datasets)
+    //* 09/11/23 TUM_FR2_SLAM and TUM_FR2_SLAM2 timestamps weren't preprocessed before to be saved in seconds. Hence they need to be divided by 1e9 using the provided _evo() functions
+    //* 05/25/24 vslamParam.experimentName controls whether _evo style trajectories are saved
+    //* 02/26/25: You may need to add your own logic to generate saving trajectory files here
+
+    {
+        unique_lock<mutex> lock(mMutexReset);
+        mbShutDown = true;
+    }
+
+    std::cout << "Shutdown Initiated\n" << std::endl;
+    std::string full_exp_name = vslamParam.sequenceName + "_" + time_when_exp_began; // MH01_1560
+
+    // Print out result statistics
+    mpTracker->IEEAIM2024Results();
+    
+    mpLocalMapper->RequestFinish();
+    mpLoopCloser->RequestFinish();
+    
+    // WatchDog: Allow Pangolin viewer to finish
+    if(mpViewer)
+    {
+        mpViewer->RequestFinish();
+        while(!mpViewer->isFinished())
+            usleep(500);
+    }
+
+    // Wait until all thread have effectively stopped
+    while(!mpLocalMapper->isFinished() || !mpLoopCloser->isFinished() || mpLoopCloser->isRunningGBA())
+    {
+        if(!mpLocalMapper->isFinished())
+            cout << "mpLocalMapper is not finished" << endl;
+        if(!mpLoopCloser->isFinished())
+            cout << "mpLoopCloser is not finished" << endl;
+        if(mpLoopCloser->isRunningGBA()){
+            cout << "mpLoopCloser is running GBA" << endl;
+            cout << "break anyway..." << endl;
+            break;
+        }
+        usleep(500);
+    }
+
+    // NOTE Trajectory in EurocV format will save in the quaternion format
+    // TODO MAJOR, convert saving trajectory to one master function
+    // 
+    // //* Open and append experiment result to a predefined textfile
+    // // Initialize some work variables
+    // std::ofstream outfile;
+    // std::string sav_f_name;
+    // std::string ffss = "ieeeaim2024_result_";
+    // std::string exp_sav_dir = "exp_results/";
+
+    // // Choose file name based on which method was used
+    // // robot0 --> psd_pcb and robot1 --> dbow2 model
+    // // TODO make this activate only when experiment name is "ieeeaim2024"
+    // if(mnAgentName.compare("/robot0")==0){
+    //     std::string str_model = "psd_pcb.txt";
+    //     sav_f_name = ffss + str_model;
+    // }
+    
+    // if(mnAgentName.compare("/robot1")==0){
+    //     std::string str_model = "bag.txt";
+    //     sav_f_name = ffss + str_model;
+    // }
+
+
+    // // Make full path
+    // std::string filePath = mnpackagePath + exp_sav_dir + sav_f_name;
+
+    // // std::cout<<"filePath: "<<filePath<<std::endl; // DEBUG
+
+    // // Open the file in append mode (creates it if it doesn't exist)
+    // std::fstream file(filePath, std::ios::out | std::ios::app);
+    // // Format _MMHH mAvgTimePlaceRecog [ms], mAvgRelocCandidatesReported [int], mAvgPoseSimilarity [units], mAvgTimeToDoRelocalization [ms], mNumFrameUsedToReloc [int], nLocalMapsInAtlas [int]
+    
+    // file << fixed << std::setw(4) << std::setprecision(3); // Fixed spacing and force number of floating point digits to be reported
+    // file << full_exp_name << " " << mpTracker->mAvgTimePlaceRecog << " " << mpTracker->mAvgRelocCandidatesReported << " " 
+    // << mpTracker->mAvgPoseSimilarity << " " << mpTracker->mAvgTimeToDoRelocalization << " " 
+    // << mpTracker->mNumFrameBeforeReloc << " " << mpTracker->nLocalMapsInAtlas << std::endl;
+    
+    // // Close the file
+    // file.close();
+
+    // // Agent using ORB-SLAM3's default DBoW2 method
+    // if(bsaveTrajPaper1 && mnAgentName.compare("/robot0")==0){
+        
+    //     std::string name_of_sav_dir = "trajectory_save_bag/"; // HARDCODED, this directory must exsist inside the src folder 
+    //     std::string path_name = mnpackagePath + name_of_sav_dir;
+    //     std::string file_name_kf_2 = full_exp_name +  "_kf" + "_dbow2" + ".txt"; //* MH01_1402_kf_dbow2.txt
+    //     std::string file_name_ff_2 = full_exp_name +  "_ff" + "_dbow2" + ".txt"; //* MH01_1402_ff_dbow2.txt
+        
+    //     // DEBUG
+    //     // std::cout<<"DboW2 save\n";
+    //     // std::cout<<"Name of sequence: "<<structParam.sequenceName<<"\n\n";
+    //     // std::cout<<file_name_kf_2<<"\n";
+    //     // std::cout<<file_name_ff_2<<"\n";
+
+    //     std::string full_path_kf = path_name + file_name_kf_2; // Path name for file saving Keyframe estimates
+    //     std::string full_path_ff = path_name + file_name_ff_2; // Path name for file saving Keyframe estimates
+
+    //     //* Save Frame by Frame and Keyframe by Keyframe estimates
+    //     //! HARDCODED
+    //     if (structParam.sequenceName.compare("MH01")==0 || structParam.sequenceName.compare("MH02")==0 || structParam.sequenceName.compare("MH03")==0 || 
+    //     structParam.sequenceName.compare("MH04")==0 || structParam.sequenceName.compare("MH05")==0 || structParam.sequenceName.compare("V101")==0 || 
+    //     structParam.sequenceName.compare("V102")==0 || structParam.sequenceName.compare("V103")==0 || structParam.sequenceName.compare("V201")==0 ||
+    //     structParam.sequenceName.compare("V202")==0 || structParam.sequenceName.compare("V203")==0 || structParam.sequenceName.compare("FR2PS1")==0
+    //     || structParam.sequenceName.compare("FR2PS2")==0){
+    //         // std::cout<<"EuRoC sequence!, using SaveKeyFrameTrajectoryEuRoC_evo() and SaveFrameByFrameTrajectoryEuRoC_evo() to save robot trajectory\n"; // DEBUG
+    //         System::SaveKeyFrameTrajectoryEuRoC_evo(full_path_kf); // Save Keyframe by Keyframe estimates
+    //         System::SaveFrameByFrameTrajectoryEuRoC_evo(full_path_ff); // Save Frame by Frame estimates
+    //     }
+    //     else{
+    //         // std::cout<<"Using SaveTrajectoryTUM() and SaveKeyFrameTrajectoryTUM() to save robot trajectory\n"; // DEBUG
+    //         //* 09/21/23 the experiment run had these two paths swapped. Its been corrected since then
+    //         // System::SaveFrameByFrameTrajectoryTUM(full_path_kf); // Save Keyframe by Keyframe estimates
+    //         // System::SaveKeyFrameTrajectoryTUM(full_path_ff); // Save Frame by Frame estimates
+
+    //         System::SaveFrameByFrameTrajectoryTUM(full_path_ff); // Save Keyframe by Keyframe estimates
+    //         System::SaveKeyFrameTrajectoryTUM(full_path_kf); // Save Frame by Frame estimates
+    //     }
+    // }
+
+    // // Agent using the proposed Keyframe descriptor, VPR algorithm and the new Relocalization pipeline
+    // // Agent using ORB-SLAM3's default DBoW2 method
+    // if(bsaveTrajPaper1 && mnAgentName.compare("/robot1")==0){
+    //     // std::string mnpackagePath = "/home/icore_base/catkin_ws/src/orb_slam3_ros/";
+    //     std::string name_of_sav_dir = "trajectory_save_ssd/"; // HARDCODED, this directory must exsist inside the source folder
+    //     std::string path_name = mnpackagePath + name_of_sav_dir;
+    //     std::string file_name_kf = full_exp_name +  "_kf" + "_ssd" + ".txt"; //* MH01_1402_kf_ssd.txt
+    //     std::string file_name_ff = full_exp_name +  "_ff" + "_ssd" + ".txt"; //* MH01_1402_ff_ssd.txt
+        
+    //     std::string full_path_kf = path_name + file_name_kf; // Path name for file saving Keyframe estimates
+    //     std::string full_path_ff = path_name + file_name_ff; // Path name for file saving Keyframe estimates
+
+    //     // DEBUG
+    //     std::cout<<"SSD save\n";
+    //     std::cout<<"Name of sequence: "<<structParam.sequenceName<<"\n\n";
+    //     std::cout<<file_name_kf<<"\n";
+    //     std::cout<<file_name_ff<<"\n";
+
+    //     //! HARDCODED
+    //     //* FR2PIONEERSLAM and FR2PIONEERSLAM2 images are saved differently than FR2PIONEER360 and FR2PIONEERSLAM3
+    //     if (structParam.sequenceName.compare("MH01")==0 || structParam.sequenceName.compare("MH02")==0 || structParam.sequenceName.compare("MH03")==0 || 
+    //     structParam.sequenceName.compare("MH04")==0 || structParam.sequenceName.compare("MH05")==0 || structParam.sequenceName.compare("V101")==0 || 
+    //     structParam.sequenceName.compare("V102")==0 || structParam.sequenceName.compare("V103")==0 || structParam.sequenceName.compare("V201")==0 ||
+    //     structParam.sequenceName.compare("V202")==0 || structParam.sequenceName.compare("V203")==0 || structParam.sequenceName.compare("FR2PS1")==0
+    //     || structParam.sequenceName.compare("FR2PS2")==0){
+    //         // std::cout<<"EuRoC sequence!, using SaveKeyFrameTrajectoryEuRoC_evo() and SaveFrameByFrameTrajectoryEuRoC_evo() to save robot trajectory\n";
+    //         System::SaveKeyFrameTrajectoryEuRoC_evo(full_path_kf); // Save Keyframe by Keyframe estimates
+    //         System::SaveFrameByFrameTrajectoryEuRoC_evo(full_path_ff); // Save Frame by Frame estimates
+    //     }
+    //     else{
+    //         // std::cout<<"Using SaveTrajectoryTUM() and SaveKeyFrameTrajectoryTUM() to save robot trajectory\n";
+    //         System::SaveFrameByFrameTrajectoryTUM(full_path_ff); // Save Keyframe by Keyframe estimates
+    //         System::SaveKeyFrameTrajectoryTUM(full_path_kf); // Save Frame by Frame estimates
+    //     }
+    // } 
+}
+
+
 bool System::isShutDown() {
     unique_lock<mutex> lock(mMutexReset);
     return mbShutDown;
