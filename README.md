@@ -126,12 +126,25 @@ fi
 
 This workspace must be placed in ```\home``` directory as shown below
 
-- Open a new terminal and execute the following commands
+* Clone this repo in `\home` as shown below
 
 ```console
 cd ~
 git clone https://github.com/RKinDLab/ros2_psd_pcb_reloc
-cd ros2_psd_pcb_reloc
+
+```
+
+* Add the `ros2_tictoc_profiler`, a package containing useful time statistics tools
+
+```bash
+cd ~/ros2_psd_pcb_reloc/src
+git clone https://github.com/Mechazo11/ros2_tic_toc_profiler.git
+cd ..
+```
+
+* Build all packages (must be from root of the workspace)
+
+```bash
 colcon build --symlink-install
 source ./install/setup.bash
 ```
