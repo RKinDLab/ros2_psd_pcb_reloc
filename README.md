@@ -1,3 +1,10 @@
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![ROS 2](https://img.shields.io/badge/ROS%202-Humble-blue)](https://docs.ros.org/en/humble/)
+[![C++](https://img.shields.io/badge/C%2B%2B-17-red)](https://en.cppreference.com/w/cpp/17)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-purple)](https://www.python.org/)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)]()
+[![Test Status](https://img.shields.io/badge/tests-untested%20after%20modifications-yellow)]()
+
 # Solving Short-Term Relocalization Problems In Monocular Keyframe Visual SLAM Using Spatial And Semantic Data
 
 ## Authors
@@ -82,7 +89,7 @@ All experiments were done in a laptop with the following configurations
 
 In this implementation, the **python nodes** are the primary driver of the system as it processes image frames from chosen directory and supplies the **Semantic Matrix** to the C++ VSLAM nodes.
 
-**Note!**, ORB-SLAM3 requires a lot of [memory](https://github.com/Mechazo11/ros2_orb_slam3/issues/7) during compilation. It is highly recommended to have at least 16Gb RAM with 8Gb swap during compilation.
+**Note!**, ORB-SLAM3 requires a lot of [memory](https://github.com/Mechazo11/ros2_orb_slam3/issues/7) during compilation. It is highly recommended to have at least 16GB RAM with 8GB swap during compilation.
 
 ---
 
@@ -110,7 +117,7 @@ Please install and test the following software before building the workspace in 
 
 The ```ros2_config.sh```, a shell script is used to automatically loads all the necessary configurations and source both the global and local ROS workspaces. Hence, set up this file using the following method
 
-- Copy ```ros2_config.sh``` from ```\shell_script``` folder into ```\home```
+- Copy ```ros2_config.sh``` from ```/shell_script``` folder into ```/home```
 
 - Add the following lines at the very end of the file of ```.bashrc```
 
@@ -124,34 +131,12 @@ fi
 
 ### Build the workspace
 
-This workspace must be placed in ```\home``` directory as shown below
-
-* Clone this repo in `\home` as shown below
+This workspace must be placed in ```\home``` directory. Additionally a ROS 2 Humble base workspace must be installed apriori. See [here](https://docs.ros.org/en/humble/Installation.html) for a tutorial on installing ROS 2 Humble. 
 
 ```bash
 cd ~
 git clone https://github.com/RKinDLab/ros2_psd_pcb_reloc
-```
-
-* Source ROS 2 workspace and build the project
-
-```bash
 source /opt/ros/humble/setup.bash
-colcon build --symlink-install
-source ./install/setup.bash
-```
-
-* Add the `ros2_tictoc_profiler`, a package containing useful time statistics tools
-
-```bash
-cd ~/ros2_psd_pcb_reloc/src
-git clone https://github.com/Mechazo11/ros2_tic_toc_profiler.git
-cd ..
-```
-
-* Build all packages (must be from root of the workspace)
-
-```bash
 colcon build --symlink-install
 source ./install/setup.bash
 ```
@@ -173,7 +158,7 @@ For sequences from [EuRoC MAV](https://projects.asl.ethz.ch/datasets/doku.php?id
 
 However, for the sequences from [TUM RGBD SLAM](https://cvg.cit.tum.de/data/datasets/rgbd-dataset/download) dataset, these were modified to be **ETH-ASL** compliant for use with this experiment. We will update this repo in future with instructions on how to download and modify the SLAM sequences to be compatible with this system.
 
-**NOTE!** during runtime, ground-truth data is not required.
+**NOTE!** during **inference**, ground-truth data is not required.
 
 ---
 
