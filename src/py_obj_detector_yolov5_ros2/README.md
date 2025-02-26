@@ -1,16 +1,12 @@
 # py_obj_detector_yolov5_ros2
 
-A ROS 2 package that wrappes YOLOv5 object detection pipeline. Detected object classes and their 2D bounding box data can be passed to other ROS 2 nodes using custom messages in ```matimg_custom_msg_interface``` package
+A ROS 2 package that wrappes YOLOv5 object detection pipeline. Detected object classes and their 2D bounding box data can be passed to other ROS 2 nodes using custom messages in ```matimg_custom_msg_interface``` package. Part of the `ros2_pcd_psb_reloc` workspace. See top-level `README.md` on how to setup and use this package.
 
 ## Requirements
 
 * Python: 3.6+
 * CUDA 12+ with compatible version of PyTorch
 * ```matimg_img_msg_interface``` ROS 2 package
-
-## How to use?
-
-TODO
 
 ## Tested datasets
 

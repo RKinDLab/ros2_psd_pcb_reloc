@@ -1,69 +1,9 @@
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 # orb_slam3_ros2
 
-An open-source VSLAM framework. Original paper 
+This ROS 2 package is a heavily modified version of my original ROS 2 wrapper for ORB-SLAM3, [ros2_orb_slam3](https://github.com/Mechazo11/ros2_orb_slam3). Part of the `ros2_pcd_psb_reloc` workspace. See top-level `README.md` on how to setup and use this package.
 
-
-### Useful Reference / Reading materials
-
-* Good notes on CubeSLAM: https://patrick-llgc.github.io/Learning-Deep-Learning/paper_notes/cube_slam.html
-
-* [cube_slam_with_comments](https://github.com/wuxiaolang/Cube_SLAM_wu) 
-
-* Notes on [Sophus](https://strasdat.github.io/Sophus/latest/docs/intro)
-
-* [Spatial Transformation matrices](https://www.brainvoyager.com/bv/doc/UsersGuide/CoordsAndTransforms/SpatialTransformationMatrices.html)
-
-* 
-
-
-
-### Requirements
-
-* Requires the ```matimg_custom_msg_interface``` package
-* Ensure the ```std::string packagePath``` variable in the ```vslam.hpp```, ```robot_slam.hpp``` files contains the correct name for your ROS2 workspace
-* All config files to be located in ```orb_slam3_ros2/orb_slam3/config``` directory, no need to make Monocular, Stereo etc. etc. folders.
-* Use convention ```<config_file_name>_MONO.yaml```, ```<config_file_name>_STEREO.yaml``` to differentiate between Monocular and Stereo configuration
-
-### Useful commands
-```mCurrentFrame.frameUnitQuat = pKFcur->GetPoseInverse().unit_quaternion(); // Sophus::unit_quaternion() converts 4x4 transformation matrix to a unit quaternion```
-
-```
-if (mnAgentName == "robot1" && start_sending_keyframes)
-{
-    pass;
-    // IDEA 1 query here to send out the latest Keyframe added to /robot0
-    // Pass this up to ROS level to be published
-}
-```
-
-### ORB SLAM3 current state
-
-* ```VSLAM::initializeORBSLAM3``` setups up the ORB-SLAM3 library with agent name, sensor configuration, TODO {will add later}
-* ```VSLAM::matImg_callback``` takes one MatImg message and executes the ORB-SLAM3 pipeline through it
-* ```System::System(const string& nsf, const string &strVocFile, ...)``` is the constructor suitable for 
-
-
-### TODOs
-
-* [] Make sure to use only one README.md file in ```ros2_psd_pcb_reloc``` repo. Just keep a bare bones readme for individual packages
-
-* [] Make sure to update this readme so that no future work related stuff is given out.
-
-* [] Make a YAML file to read catkin workspace location for both C++ and python node to formalize this
-
-* [ ] In ```System``` class, AFTER NSF, configure ```cameraK``` to be read from the ```Camera``` class file. Currently its ```HARDCODDED```
-
-* [] Make sure to convert blocks of logical blocks```Tracking::Track()``` ***
-
-* [] Once these two problems are fixed, then make the master copy to start paper 1 code
-
-* [ ] Figure out how to use the ```MapDrawer::DrawObservedKeyframes()``` function from last time
-
-### Future Upgrades 
-
-* [ ] Update make Python node wait till receiving clear to receive next processed data by the VSLAM node essentially a bidirectional communication ***
-
-* Use the YAML file to read in the FPS and set ```cvWinWaitTimeVal``` in ```System``` class.
+Except for addressing some build problems, no further update is made to this copy of ORB-SLAM3. 
 
 
 #### Copyright notice
@@ -89,8 +29,22 @@ Applicable to all files in the system
 */
 ```
 
-### git branch
+### Requirements
 
-```main```: Primary branch, only updated after a feature is developed, tested and is stable.
-```dev```: Primary development branch, may take updates from other branches and pushes to main
-```nsf24```: branch that was used for NSF24DEMO. No longer used since ***05/01/2024***
+* Requires the ```matimg_custom_msg_interface``` package
+* Ensure the ```std::string packagePath``` variable in the ```vslam.hpp```, ```robot_slam.hpp``` files contains the correct name for your ROS2 workspace
+* All config files to be located in ```orb_slam3_ros2/orb_slam3/config``` directory, no need to make Monocular, Stereo etc. etc. folders.
+* Use convention ```<config_file_name>_MONO.yaml```, ```<config_file_name>_STEREO.yaml``` to differentiate between Monocular and Stereo configuration
+
+### Future Upgrades 
+
+* [ ] Update make Python node wait till receiving clear to receive next processed data by the VSLAM node essentially a bidirectional communication ***
+* [ ] Use the YAML file to read in the FPS and set ```cvWinWaitTimeVal``` in ```System``` class.
+
+### Useful Reference / Reading materials
+
+* [cube_slam_with_comments](https://github.com/wuxiaolang/Cube_SLAM_wu) 
+
+* Notes on [Sophus](https://strasdat.github.io/Sophus/latest/docs/intro)
+
+* [Spatial Transformation matrices](https://www.brainvoyager.com/bv/doc/UsersGuide/CoordsAndTransforms/SpatialTransformationMatrices.html)
